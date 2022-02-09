@@ -96,3 +96,9 @@ body .text-content
 	box-sizing: border-box;
 	padding: 0 10px;
 }
+
+pre code.hljs
+{
+	padding: 3px 5px !important;
+	font-size: 14px;
+}
