@@ -33,13 +33,13 @@
 					buildMenuButton(pages, null, function(element) { header.appendChild(element); }, p);
 					pagePath = pathToPage[p] ? p : "main.html";
 
-					var title = "Xytabich";
+					var title = "";
 					var page = pathToPage[pagePath];
 					while(page != null) {
-						title += " > " + page.name;
+						title = " > " + page.name + title;
 						page = page.parent;
 					}
-					document.title = title;
+					document.title = "Xytabich" + title;
 				}
 				function buildMenuButton(pages, parent, appendChild, currentPath)
 				{
