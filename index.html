@@ -53,7 +53,7 @@
 						if(k == currentPath) {
 							element.classList.toggle("active", true);
 						}
-						if(!page.noLink) element.href = "?p=" + encodeURIComponent(k);
+						if(!page.noLink) element.href = "/index.html?p=" + encodeURIComponent(k);
 						element.innerHTML = page.name;
 						page.element = element;
 
