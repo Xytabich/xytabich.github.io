@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	for(var i = 0; i < links.length; i++)
 	{
 		links[i].href = "/index.html?p=" + encodeURIComponent(links[i].getAttribute("src"));
+		links[i].target = "_top";
 		links[i].removeAttribute("src");
 	}
 });
