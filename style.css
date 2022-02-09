@@ -1,0 +1,78 @@
+html
+{
+	height: 100%;
+}
+
+body
+{
+	box-sizing: border-box;
+	height: 100%;
+	padding-top: 43px;
+	font-size: 18px;
+	line-height: 1.5;
+	margin: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	margin: 10px 0;
+}
+
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 24px;
+}
+h4 {
+	font-size: 20px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+
+body > .sidebar
+{
+	position: absolute;
+	display: block;
+	width: 250px;
+	height: 100%;
+	color: black;
+	background-color: #f0f0f0;
+}
+
+body > .sidebar > .item
+{
+	width: 100%;
+}
+
+body > .sidebar > .item-link
+{
+	width: 100%;
+	color: black;
+	cursor: pointer;
+	user-select: none;
+	text-decoration: none;
+}
+
+body > .sidebar > .item-link:hover
+{
+	color: white;
+	background: black;
+}
+
+body > .content
+{
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-left: 250px;
+}

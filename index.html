@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Xytabich</title>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/indexstyle.css">
+
+		<script type="text/javascript">
+			var onPagelistLoaded, onHeaderElementLoaded, getPagePath;
+			{
+				var pages = null, isHeaderLoaded = false, pagePath, pathToPage = {};
+				onPagelistLoaded = function(list)
+				{
+					pages = list;
+					if(isHeaderLoaded) buildPagelist();
+				}
+				onHeaderElementLoaded = function()
+				{
+					isHeaderLoaded = true;
+					if(pages != null) buildPagelist();
+				}
+				function buildPagelist()
+				{
+					var header = document.body.querySelector("body > header");
+					var p = new URL(window.location).searchParams.get("p");
+					if(p && p == "") p = "main.html";
+					buildMenuButton(pages, function(element) { header.appendChild(element); }, p);
+					pagePath = pathToPage[p] ? p : "main.html";
+					
+					document.title = "Xytabich > " + pathToPage[pagePath].name;
+				}
+				function buildMenuButton(pages, appendChild, currentPath)
+				{
+					for(var k in pages) {
+						var page = pages[k];
+						pathToPage[k] = page;
+
+						var element = document.createElement("a");
+						element.className = "item-link";
+						if(k == currentPath) {
+							element.classList.toggle("active", true);
+						}
+						if(!page.noLink) element.href = "?p=" + encodeURIComponent(k);
+						element.innerHTML = page.name;
+						page.element = element;
+
+						if(page.pages) {
+							var root = document.createElement("div");
+							root.className = "list-root";
+							root.appendChild(element);
+
+							var ul = document.createElement("ul");
+							buildMenuButton(page.pages, function(element)
+							{
+								var li = document.createElement("li");
+								li.appendChild(element);
+								ul.appendChild(li);
+							}, currentPath);
+							root.appendChild(ul);
+
+							element = root;
+						}
+						appendChild(element);
+					}
+				}
+				getPagePath = function()
+				{
+					return pagePath;
+				}
+			}
+		</script>
+		<script type="text/javascript" src="/pagelist.js"></script>
+	</head>
+	<body>
+		<header class="list">
+		</header>
+		<script type="text/javascript">onHeaderElementLoaded();</script>
+		<content>
+			<object type="text/html"></object>
+			<script type="text/javascript">
+				document.body.querySelector("body > content > object").data = new URL(getPagePath(), window.location).toString();
+			</script>
+		</content>
+	</body>
+</html>
