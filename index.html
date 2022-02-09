@@ -32,14 +32,21 @@
 					if(p && p == "") p = "main.html";
 					buildMenuButton(pages, function(element) { header.appendChild(element); }, p);
 					pagePath = pathToPage[p] ? p : "main.html";
-					
-					document.title = "Xytabich > " + pathToPage[pagePath].name;
+
+					var title = "Xytabich";
+					var page = pathToPage[pagePath];
+					while(page != null) {
+						title += " > " + page.name;
+						page = page.parent;
+					}
+					document.title = title;
 				}
-				function buildMenuButton(pages, appendChild, currentPath)
+				function buildMenuButton(pages, parent, appendChild, currentPath)
 				{
 					for(var k in pages) {
 						var page = pages[k];
 						pathToPage[k] = page;
+						if(parent != null) page.parent = parent;
 
 						var element = document.createElement("a");
 						element.className = "item-link";
@@ -56,7 +63,7 @@
 							root.appendChild(element);
 
 							var ul = document.createElement("ul");
-							buildMenuButton(page.pages, function(element)
+							buildMenuButton(page.pages, page, function(element)
 							{
 								var li = document.createElement("li");
 								li.appendChild(element);
