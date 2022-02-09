@@ -30,7 +30,7 @@
 					var header = document.body.querySelector("body > header");
 					var p = new URL(window.location).searchParams.get("p");
 					if(p && p == "") p = "main.html";
-					buildMenuButton(pages, function(element) { header.appendChild(element); }, p);
+					buildMenuButton(pages, null, function(element) { header.appendChild(element); }, p);
 					pagePath = pathToPage[p] ? p : "main.html";
 
 					var title = "Xytabich";
