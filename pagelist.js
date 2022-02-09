@@ -7,7 +7,13 @@ onPagelistLoaded({
 		"noLink": true,
 		"pages": {
 			"vintagestory/glassmaking/index.html": {
-				"name": "Glassmaking"
+				"name": "Glassmaking",
+				"pages": {
+					"vintagestory/glassmaking/glasstype.html": {
+						"name": "Adding custom glass",
+						"hide": true
+					}
+				}
 			}
 		}
 	}

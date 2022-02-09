@@ -48,32 +48,38 @@
 						pathToPage[k] = page;
 						if(parent != null) page.parent = parent;
 
-						var element = document.createElement("a");
-						element.className = "item-link";
-						if(k == currentPath) {
-							element.classList.toggle("active", true);
+						if(page.hide) appendChild = null;
+						if(appendChild == null) {
+							buildMenuButton(page.pages, page, null, currentPath);
 						}
-						if(!page.noLink) element.href = "/index.html?p=" + encodeURIComponent(k);
-						element.innerHTML = page.name;
-						page.element = element;
+						else {
+							var element = document.createElement("a");
+							element.className = "item-link";
+							if(k == currentPath) {
+								element.classList.toggle("active", true);
+							}
+							if(!page.noLink) element.href = "/index.html?p=" + encodeURIComponent(k);
+							element.innerHTML = page.name;
+							page.element = element;
 
-						if(page.pages) {
-							var root = document.createElement("div");
-							root.className = "list-root";
-							root.appendChild(element);
+							if(page.pages) {
+								var root = document.createElement("div");
+								root.className = "list-root";
+								root.appendChild(element);
 
-							var ul = document.createElement("ul");
-							buildMenuButton(page.pages, page, function(element)
-							{
-								var li = document.createElement("li");
-								li.appendChild(element);
-								ul.appendChild(li);
-							}, currentPath);
-							root.appendChild(ul);
+								var ul = document.createElement("ul");
+								buildMenuButton(page.pages, page, function(element)
+								{
+									var li = document.createElement("li");
+									li.appendChild(element);
+									ul.appendChild(li);
+								}, currentPath);
+								root.appendChild(ul);
 
-							element = root;
+								element = root;
+							}
+							appendChild(element);
 						}
-						appendChild(element);
 					}
 				}
 				getPagePath = function()
