@@ -1,4 +1,4 @@
-document.body.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function() {
 	var links = document.body.querySelectorAll("a[src]");
 	for(var i = 0; i < links.length; i++)
 	{
