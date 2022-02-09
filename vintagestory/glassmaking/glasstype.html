@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/style.css">
+		<script type="text/javascript" src="/script.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+	</head>
+	<body>
+		<div class="sidebar list">
+			<h4 class="item"><b>Menu</b></h4>
+			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
+			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
+		</div>
+		<div class="content">
+			<div class="text-content">
+				<h3>Adding custom glass</h3>
+				<p>
+					To add your own glass type, you need to create a file <code>assets/MODID/worldproperties/abstract/glasstype.json</code> and write there:
+				</p>
+				<pre><code class="language-json">
+{
+	"code": "glasstype",
+	"variants": [
+		{
+			"code": "plain",
+			"meltingPoint": 1300
+		}
+	]
+}
+				</code></pre>
+			</div>
+		</div>
+	</body>
+</html>

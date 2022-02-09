@@ -15,18 +15,6 @@ body > header
 	z-index: 1;
 }
 
-body .list .item, body .list .item-link
-{
-	display: inline-block;
-	box-sizing: border-box;
-	overflow: hidden;
-	padding: 8px 16px;
-	border: none;
-	outline: none;
-	white-space: normal;
-	vertical-align: middle;
-}
-
 body > header .item-link
 {
 	width: auto;
