@@ -11,7 +11,7 @@ if(hljs)
 {
 	hljs.addPlugin({
 		'before:highlight': function(info) {
-			info.code = info.code.trim();
+			info.code = info.code.trim().replace("\t", "    ");
 		}
 	});
 }
