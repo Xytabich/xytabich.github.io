@@ -28,7 +28,8 @@
 				function initPages()
 				{
 					var header = document.body.querySelector("body > header");
-					var p = new URL(window.location).searchParams.get("p").trim();
+					var p = new URL(window.location).searchParams.get("p");
+					p = p == null ? "" : p.trim();
 					if(p.startsWith("/")) p = p.substring(1);
 					if(p && p == "") p = "main.html";
 					buildMenuButton(pages, null, function(element) { header.appendChild(element); }, p);

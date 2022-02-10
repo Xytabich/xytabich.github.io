@@ -94,6 +94,7 @@ body > .content
 body .text-content
 {
 	box-sizing: border-box;
+	overflow: auto;
 	padding: 0 10px;
 }
 
