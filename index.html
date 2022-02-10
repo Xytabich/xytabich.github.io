@@ -88,12 +88,17 @@
 					return pagePath;
 				}
 			}
+			function loadDynamicScript(path)
+			{
+				var script = document.head.appendChild(document.createElement("script"));
+				script.type = "text/javascript";
+				script.src = path + "?v=" + Date.now();
+			}
+			loadDynamicScript("/pagelist.js");
 		</script>
-		<script type="text/javascript" src="/pagelist.js"></script>
 	</head>
 	<body>
-		<header class="list">
-		</header>
+		<header class="list"></header>
 		<script type="text/javascript">onHeaderElementLoaded();</script>
 		<content>
 			<object type="text/html"></object>
