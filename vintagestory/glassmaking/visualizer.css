@@ -8,11 +8,13 @@
 
 .recipe-visualizer .recipe-code
 {
+	box-sizing: border-box;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 30%;
 	height: 100%;
+	margin: 0;
 }
 
 .recipe-visualizer .recipe-visual
