@@ -12,6 +12,10 @@ onPagelistLoaded({
 					"vintagestory/glassmaking/glasstype.html": {
 						"name": "Adding custom glass",
 						"hide": true
+					},
+					"vintagestory/glassmaking/blowrecipe.html": {
+						"name": "Adding blowing recipe",
+						"hide": true
 					}
 				}
 			}
