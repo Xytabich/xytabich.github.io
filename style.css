@@ -104,7 +104,7 @@ pre code.hljs
 	font-size: 14px;
 }
 
-p code
+code:not(.hljs)
 {
 	box-sizing: border-box;
 	font-size: 16px;
