@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+		<script type="text/javascript" src="/script.js"></script>
+		<link rel="stylesheet" href="/style.css">
+	</head>
+	<body>
+		<div class="sidebar list">
+			<h4 class="item"><b>Menu</b></h4>
+			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
+			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
+			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
+		</div>
+		<div class="content">
+			<div class="text-content">
+				<h3>Adding blowing recipe</h3>
+				<p>
+					To add a new blowing recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassblowing/</code> folder and write there:
+				</p>
+				<pre><code class="language-json">
+{
+    "code": "RECIPECODE",
+    "output": {
+        "type": "ITEMTYPE",
+        "code": "ITEMCODE"
+    },
+    "steps": []
+}
+				</code></pre>
+				<p>Blowing consists of several steps, each step describes the tool or action used in the process, as well as the shape that will be obtained as a result of this step.</p>
+				<p>As an example, a step with glass intake from a smeltery:</p>
+				<pre><code class="language-json">
+"steps": [
+	{
+		"tool": "glassintake",
+		"shape": {
+			"segments": 13,
+			"outer": [
+				[ -3, 0 ],
+				[ 1, 6 ],
+				[ 14, 6 ],
+				[ 14, 0 ]
+			],
+			"inner": [
+				[ -3, 0 ],
+				[ 1, 4 ],
+				[ 7, 4 ],
+				[ 7, 0 ]
+			]
+		},
+		"attributes": {
+			"code": "game:plain",
+			"amount": 128
+		}
+	}
+]
+				</code></pre>
+				<p>The <code>tool</code> field contains the name of the tool or action.</p>
+				<p>The <code>attributes</code> field contains additional data that the tool uses.</p>
+				<p>The optional <code>shape</code> field contains information about the shape of the workpiece that it will take as a result of this step:</p>
+				<ul>
+					<li><code>segments</code> is the number of segments along the length of the mesh, the more the smoother the surface, but it does not affect the number of circle segments.</li>
+					<li><code>outer</code> is an optional bezier curve (or several curves) that describes the outer shape of the workpiece.</li>
+					<li><code>inner</code> is a curve that describes the inverse or inner shape of the workpiece.</li>
+				</ul>
+				<p>Using the bezier curve you can specify any shape of the workpiece, but in cross section they will always have the shape of a circle.</p>
+			</div>
+		</div>
+		<script>hljs.highlightAll();</script>
+	</body>
+</html>
