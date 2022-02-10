@@ -38,9 +38,18 @@
 					To add a glass name to a lang file, use the format <code>MODID:glassblend-CODE</code>, for example <code>game:glassblend-plain</code>.
 					You do not need to add <code>glass</code> to the name (like <code>Plain glass</code>), just use <code>Plain</code>.
 				</p>
-				<p>
-					The glass texture should have the path <code>assets/MODID/textures/block/glass/CODE.png</code>.
-				</p>
+				<p>The glass texture should have the path <code>assets/MODID/textures/block/glass/CODE.png</code>.</p>
+				<p></p>
+				<p>In order for the glass above to be smelted in the smelter, create an item with the "glassmaking:glassblend" attribute:</p>
+				<pre><code class="language-json">
+"attributes": {
+	"glassmaking:glassblend": {
+		"code": "CODE",
+		"amount": AMOUNT
+	}
+}
+				</code></pre>
+				<p>Where <code>CODE</code> is the glass codename and <code>AMOUNT</code> is the number of units obtained from melting this item.</p>
 			</div>
 		</div>
 		<script>hljs.highlightAll();</script>
