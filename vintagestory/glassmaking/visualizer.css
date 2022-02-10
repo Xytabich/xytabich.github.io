@@ -1,0 +1,31 @@
+.recipe-visualizer
+{
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	padding-left: 30%;
+}
+
+.recipe-visualizer .recipe-code
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30%;
+	height: 100%;
+}
+
+.recipe-visualizer .recipe-visual
+{
+	width: 100%;
+}
+
+.recipe-visualizer .recipe-visual svg
+{
+	width: 100%;
+}
+
+.recipe-visualizer .recipe-visual input
+{
+	width: 80%;
+}
