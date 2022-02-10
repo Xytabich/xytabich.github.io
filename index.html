@@ -12,20 +12,20 @@
 		<link rel="stylesheet" href="/indexstyle.css">
 
 		<script type="text/javascript">
-			var onPagelistLoaded, onHeaderElementLoaded, getPagePath;
+			var onPagelistLoaded, onElementsLoaded, getPagePath;
 			{
 				var pages = null, isHeaderLoaded = false, pagePath, pathToPage = {};
 				onPagelistLoaded = function(list)
 				{
 					pages = list;
-					if(isHeaderLoaded) buildPagelist();
+					if(isHeaderLoaded) initPages();
 				}
-				onHeaderElementLoaded = function()
+				onElementsLoaded = function()
 				{
 					isHeaderLoaded = true;
-					if(pages != null) buildPagelist();
+					if(pages != null) initPages();
 				}
-				function buildPagelist()
+				function initPages()
 				{
 					var header = document.body.querySelector("body > header");
 					var p = new URL(window.location).searchParams.get("p").trim();
@@ -41,6 +41,7 @@
 						page = page.parent;
 					}
 					document.title = "Xytabich" + title;
+					document.getElementById("page-container").data = new URL(pagePath, window.location).toString();
 				}
 				function buildMenuButton(pages, parent, appendChild, currentPath)
 				{
@@ -99,12 +100,7 @@
 	</head>
 	<body>
 		<header class="list"></header>
-		<script type="text/javascript">onHeaderElementLoaded();</script>
-		<content>
-			<object type="text/html"></object>
-			<script type="text/javascript">
-				document.body.querySelector("body > content > object").data = new URL(getPagePath(), window.location).toString();
-			</script>
-		</content>
+		<content><object type="text/html" id="page-container"></object></content>
+		<script type="text/javascript">onElementsLoaded();</script>
 	</body>
 </html>
