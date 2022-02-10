@@ -7,10 +7,10 @@ window.addEventListener("DOMContentLoaded", function() {
 		links[i].removeAttribute("src");
 	}
 });
-if(hljs)
+if(typeof hljs != "undefined")
 {
 	hljs.addPlugin({
-		'before:highlight': function(info) {
+		"before:highlight": function(info) {
 			info.code = info.code.trim().replaceAll("\t", "    ");
 		}
 	});
