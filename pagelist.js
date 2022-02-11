@@ -20,6 +20,10 @@ onPagelistLoaded({
 					"vintagestory/glassmaking/blowtools.html": {
 						"name": "Glassblower tools",
 						"hide": true
+					},
+					"vintagestory/glassmaking/moldrecipe.html": {
+						"name": "Adding mold",
+						"hide": true
 					}
 				}
 			}

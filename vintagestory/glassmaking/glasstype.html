@@ -15,6 +15,7 @@
 			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
 			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
 			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
+			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding mold</a>
 		</div>
 		<div class="content">
 			<div class="text-content">
@@ -33,9 +34,8 @@
 	]
 }
 				</code></pre>
-				<p>
-					Where <code>CODE</code> is the glass codename and <code>TEMPERATURE</code> is a number, the melting point in Celsius.
-				</p>
+				<p>Where <code>CODE</code> is the glass codename and <code>TEMPERATURE</code> is a number, the melting point in Celsius.</p>
+				<p>Note that this temperature is multiplied by 1.1 (i.e. +10%) for bubbling, so consider the smeltery maximum temperature when setting the melting temperature.</p>
 				<p>
 					To add a glass name to a lang file, use the format <code>MODID:glassblend-CODE</code>, for example <code>game:glassblend-plain</code>.
 					You do not need to add <code>glass</code> to the name (like <code>Plain glass</code>), just use <code>Plain</code>.
