@@ -102,8 +102,6 @@ body .text-content span.space
 {
 	display: inline-block;
 	height: 1.5em;
-	margin-top: 1em;
-	margin-bottom: 1em;
 }
 
 pre code.hljs
