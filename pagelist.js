@@ -24,6 +24,10 @@ onPagelistLoaded({
 					"vintagestory/glassmaking/moldrecipe.html": {
 						"name": "Adding mold",
 						"hide": true
+					},
+					"vintagestory/glassmaking/annealing.html": {
+						"name": "Annealing recipe",
+						"hide": true
 					}
 				}
 			}

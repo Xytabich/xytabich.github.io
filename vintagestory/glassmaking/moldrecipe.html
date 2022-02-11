@@ -16,10 +16,12 @@
 			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
 			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
 			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding mold</a>
+			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
 		</div>
 		<div class="content">
 			<div class="text-content">
 				<h3>Adding mold</h3>
+				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassmold.json" target="_blank">Example on github.</a></p>
 				<p>Parameters used by molds:</p>
 				<pre><code class="language-json">
 {
@@ -62,7 +64,7 @@
 							<li><code>amount</code> - required amount of glass</li>
 							<li>
 								<code>var</code> - by how many units the <code>amount</code> value can be exceeded.
-								Specify if you need the exact amount. By default, a layer can consist of any amount of glass.
+								Specify if the recipe requires an exact amount. By default, a layer can consist of any amount of glass.
 							</li>
 							<li><code>name</code> - the name used for the wildcard</li>
 							<li><code>allowedVariants</code> - allowed variants for wildcard</li>
