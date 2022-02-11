@@ -98,6 +98,14 @@ body .text-content
 	padding: 0 10px;
 }
 
+body .text-content span.space
+{
+	display: inline-block;
+	height: 1.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 pre code.hljs
 {
 	padding: 3px 5px !important;
