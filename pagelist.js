@@ -22,7 +22,11 @@ onPagelistLoaded({
 						"hide": true
 					},
 					"vintagestory/glassmaking/moldrecipe.html": {
-						"name": "Adding mold",
+						"name": "Adding blowing mold",
+						"hide": true
+					},
+					"vintagestory/glassmaking/castmoldrecipe.html": {
+						"name": "Adding casting mold",
 						"hide": true
 					},
 					"vintagestory/glassmaking/annealing.html": {

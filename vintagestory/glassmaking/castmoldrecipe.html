@@ -22,46 +22,44 @@
 		<div class="content">
 			<div class="text-content">
 				<h3>Adding mold</h3>
-				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassshape.json" target="_blank">Example on github.</a></p>
-				<p>To add an annealing recipe, you must specify the temperature regime, the annealing time, and the output item in the item's attributes.</p>
+				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/castmold.json" target="_blank">Example on github.</a></p>
+				<p>Parameters used by molds:</p>
 				<pre><code class="language-json">
 {
-	"attributes": {
-		"glassmaking:anneal": {
-			"temperature": {
-				"min": ...,
-				"max": ...
+    "class": "glassmaking:castingmold",
+    "entityClass": "glassmaking:castingmold",
+    "attributes": {
+		"glassmaking:castingmold": {
+			"recipe": {
+				"code": "...",
+				"amount": ...,
+				"allowedVariants": [...]
 			},
-			"time": ...,
 			"output": {
 				"type": "...",
 				"code": "..."
 			}
-		}
+		},
+		"fillHeight": ...,
+		"fillQuadsByLevel": [...]
 	}
 }
 				</code></pre>
+				<p>To specify that a block is a mold, you need to use the block and entity class <code>glassmaking:castingmold</code>.</p>
+				<p>The recipe is described in the <code>glassmaking:castingmold</code> attribute:</p>
 				<ul>
-					<li><code>temperature</code> - temperature regime: first, the object must be heated to the maximum temperature, and then kept above the minimum temperature for the specified time.</li>
-					<li><code>time</code> - how long it is necessary to keep the temperature above the minimum, specify in seconds of the in-game calendar.</li>
-					<li><code>output</code> - output item stack.</li>
-				</ul>
-				<p>Additional attributes:</p>
-				<pre><code class="language-json">
-{
-	"attributes": {
-		"annealerSize": ...,
-		"annealerTransform": ...
-	}
-}
-				</code></pre>
-				<ul>
-					<li>
-						<code>annealerSize</code> allows you to set the relative size of an item in the annealer, allowing you to place many small items or one large item.
-						Size 1 allows only 1 item, size 0.5 is 2*2=4 items, and so on.
+					<li><code>output</code> - what item will be crafted.</li>
+					<li><code>recipe</code>
+						<ul>
+							<li><code>code</code> - glass code</li>
+							<li><code>amount</code> - required amount of glass (1000 units of glass are equivalent to one block by volume)</li>
+							<li><code>allowedVariants</code> - allowed variants for wildcard</li>
+						</ul>
 					</li>
-					<li><code>annealerTransform</code> - relative transformation of an object inside an annealer.</li>
 				</ul>
+				<p>The <code>fillHeight</code> and <code>fillQuadsByLevel</code> attributes are used to display the melt in the mold (acts same as the clay tool molds in vanilla).</p>
+				<p>The <code>fillHeight</code> attribute specifies the maximum melt height in voxels.</p>
+				<p>The <code>fillQuadsByLevel</code> attribute specifies the dimensions of the polygon with the melt. It is possible to specify one overall size, or for each voxel layer.</p>
 			</div>
 		</div>
 		<script>hljs.highlightAll();</script>
