@@ -23,9 +23,13 @@
 	<body>
 		<header class="list">
 			{% for p in site.data.navpages %}
-			<a class="item-link{% if p.link == page.url %} active{% endif %}"{% if p.nohref == null %} href="{{ p.link }}"{% endif %}>{{ p.title }}{% if p.submenu %}{% for s in p.items %}
-				<a class="item-link{% if s.link == page.url %} active{% endif %}" href="{{ s.link }}">{{ s.title }}</a>
-				{% endfor %}{% endif %}</a>
+			<a class="item-link{% if p.link == page.url %} active{% endif %}" {% if p.nohref==null %} href="{{ p.link }}" {% endif %}>{{ p.title }}
+				{% if p.submenu %}
+					<div class="list-root"><ul>{% for s in p.items %}
+						<li><a class="item-link{% if s.link == page.url %} active{% endif %}" href="{{ s.link }}">{{ s.title }}</a></li>
+					{% endfor %}</ul></div>
+				{% endif %}
+			</a>
 			{% endfor %}
 		</header>
 		{{ content }}
