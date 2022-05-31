@@ -1,0 +1,9 @@
+- link: ""
+  title: Main
+- link: "vintagestory":
+  title: "Vintage Story Mods"
+  nohref: true
+  submenu: true
+  items:
+    - link: vintagestory/glassmaking/index.html
+      title: Glassmaking

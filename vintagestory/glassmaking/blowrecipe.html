@@ -1,129 +1,105 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-		<script type="text/javascript" src="/script.js"></script>
-		<link rel="stylesheet" href="/style.css">
-		<link rel="stylesheet" href="visualizer.css">
-		<script type="text/javascript" src="visualizer.js"></script>
-	</head>
-	<body>
-		<div class="sidebar list">
-			<h4 class="item"><b>Menu</b></h4>
-			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
-			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
-			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding blowing mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/castmoldrecipe.html">Adding casting mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
-		</div>
-		<div class="content">
-			<div class="text-content">
-				<h3>Adding blowing recipe</h3>
-				<ul>
-					<li>Adding recipe</li>
-					<li><a href="#visualizer">Recipe shape visualizer</a></li>
-				</ul>
-				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/recipes/glassblowing/glassshape.json" target="_blank">Example on github.</a></p>
-				<p>
-					To add a new blowing recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassblowing/</code> folder and write there:
-				</p>
-				<pre><code class="language-json">
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Adding blowing recipe
+---
+<link rel="stylesheet" href="visualizer.css">
+<script type="text/javascript" src="visualizer.js"></script>
+<h3>Adding blowing recipe</h3>
+<ul>
+	<li>Adding recipe</li>
+	<li><a href="#visualizer">Recipe shape visualizer</a></li>
+</ul>
+<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/recipes/glassblowing/glassshape.json" target="_blank">Example on github.</a></p>
+<p>
+	To add a new blowing recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassblowing/</code> folder and write there:
+</p>
+<pre><code class="language-json">
 {
-    "code": "RECIPECODE",
-    "output": {
-        "type": "ITEMTYPE",
-        "code": "ITEMCODE"
-    },
-    "steps": []
+"code": "RECIPECODE",
+"output": {
+"type": "ITEMTYPE",
+"code": "ITEMCODE"
+},
+"steps": []
 }
-				</code></pre>
-				<p>Blowing consists of several steps, each step describes the tool or action used in the process, as well as the shape that will be obtained as a result of this step.</p>
-				<p>As an example, a step with glass intake from a smeltery:</p>
-				<pre><code class="language-json">
+</code></pre>
+<p>Blowing consists of several steps, each step describes the tool or action used in the process, as well as the shape that will be obtained as a result of this step.</p>
+<p>As an example, a step with glass intake from a smeltery:</p>
+<pre><code class="language-json">
 "steps": [
-	{
-		"tool": "glassintake",
-		"shape": {
-			"segments": 13,
-			"outer": [
-				{
-					"segments": 6,
-					"vertices": [
-						[ -3, 0 ],
-						[ 1, 6 ],
-						[ 6, 6 ],
-						[ 7, 5 ]
-					]
-				},
-				{
-					"segments": 7,
-					"vertices": [
-						[ 7, 5 ],
-						[ 9, 6 ],
-						[ 14, 6 ],
-						[ 14, 0 ]
-					]
-				}
-			],
-			"inner": [
-				[ -3, 0 ],
-				[ 1, 4 ],
-				[ 7, 4 ],
-				[ 7, 0 ]
-			]
-		},
-		"attributes": {
-			"code": "game:plain",
-			"amount": 128
-		}
-	}
+{
+"tool": "glassintake",
+"shape": {
+"segments": 13,
+"outer": [
+{
+	"segments": 6,
+	"vertices": [
+		[ -3, 0 ],
+		[ 1, 6 ],
+		[ 6, 6 ],
+		[ 7, 5 ]
+	]
+},
+{
+	"segments": 7,
+	"vertices": [
+		[ 7, 5 ],
+		[ 9, 6 ],
+		[ 14, 6 ],
+		[ 14, 0 ]
+	]
+}
+],
+"inner": [
+[ -3, 0 ],
+[ 1, 4 ],
+[ 7, 4 ],
+[ 7, 0 ]
 ]
-				</code></pre>
-				<p>The <code>tool</code> field contains the name of the tool or action.</p>
-				<p>The <code>attributes</code> field contains additional data that the tool uses.</p>
-				<p>The optional <code>shape</code> field contains information about the shape of the workpiece that it will take as a result of this step:</p>
-				<ul>
-					<li><code>segments</code> is the number of segments along the length of the mesh, the more the smoother the surface, but it does not affect the number of circle segments.</li>
-					<li><code>outer</code> is an optional bezier curve (or several curves) that describes the outer shape of the workpiece.</li>
-					<li><code>inner</code> is a curve that describes the inverse or inner shape of the workpiece.</li>
-				</ul>
-				<p>
-					A curve can consist of several parts, for a simple bezier curve it is enough to use an array of points (as done in <code>inner</code>).
-					If you need a more complex shape, you can use the example from <code>outer</code>, where <code>segments</code> indicates the number of segments used by this part of the curve.
-					The sum of the segments of all parts must be equal to the number of segments of the entire curve.
-				</p>
-				<p>Using the bezier curve you can specify any shape of the workpiece, but in cross section they will always have the shape of a circle.</p>
-				<p>Each tool or action can have progress, and depending on this progress the shape will be interpolated from the previous step to the current one.</p>
-				<span class="space"></span>
+},
+"attributes": {
+"code": "game:plain",
+"amount": 128
+}
+}
+]
+</code></pre>
+<p>The <code>tool</code> field contains the name of the tool or action.</p>
+<p>The <code>attributes</code> field contains additional data that the tool uses.</p>
+<p>The optional <code>shape</code> field contains information about the shape of the workpiece that it will take as a result of this step:</p>
+<ul>
+	<li><code>segments</code> is the number of segments along the length of the mesh, the more the smoother the surface, but it does not affect the number of circle segments.</li>
+	<li><code>outer</code> is an optional bezier curve (or several curves) that describes the outer shape of the workpiece.</li>
+	<li><code>inner</code> is a curve that describes the inverse or inner shape of the workpiece.</li>
+</ul>
+<p>
+	A curve can consist of several parts, for a simple bezier curve it is enough to use an array of points (as done in <code>inner</code>).
+	If you need a more complex shape, you can use the example from <code>outer</code>, where <code>segments</code> indicates the number of segments used by this part of the curve.
+	The sum of the segments of all parts must be equal to the number of segments of the entire curve.
+</p>
+<p>Using the bezier curve you can specify any shape of the workpiece, but in cross section they will always have the shape of a circle.</p>
+<p>Each tool or action can have progress, and depending on this progress the shape will be interpolated from the previous step to the current one.</p>
+<span class="space"></span>
 
-				<a id="visualizer"></a>
-				<h3>Recipe shape visualizer</h3>
-				<p>
-					A simple glass shape visualizer at various recipe steps.
-					Put json of the recipe in the input field to visualize (only strict json is supported).
-				</p>
-				<div class="recipe-visualizer">
-					<textarea class="recipe-code"></textarea>
-					<div class="recipe-visual">
-						<input type="range" id="recipe-step" min="0" max="11" step="0.01">
-						<label for="recipe-step"></label>
-						<svg class="recipe-svg" viewBox="-10 -10 50 20" xmlns="http://www.w3.org/2000/svg">
-							<polyline points="-16,0.5 -2,0.5 -2,0.6 0,0.6 0,-0.6 -2,-0.6 -2,-0.5 -16,-0.5" fill="none" stroke="brown" stroke-width="0.2%"></polyline>
-				
-							<polyline class="inner1" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
-							<polyline class="inner2" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
-							<polyline class="outer1" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
-							<polyline class="outer2" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
-						</svg>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script>hljs.highlightAll();</script>
-	</body>
-</html>
+<a id="visualizer"></a>
+<h3>Recipe shape visualizer</h3>
+<p>
+	A simple glass shape visualizer at various recipe steps.
+	Put json of the recipe in the input field to visualize (only strict json is supported).
+</p>
+<div class="recipe-visualizer">
+	<textarea class="recipe-code"></textarea>
+	<div class="recipe-visual">
+		<input type="range" id="recipe-step" min="0" max="11" step="0.01">
+		<label for="recipe-step"></label>
+		<svg class="recipe-svg" viewBox="-10 -10 50 20" xmlns="http://www.w3.org/2000/svg">
+			<polyline points="-16,0.5 -2,0.5 -2,0.6 0,0.6 0,-0.6 -2,-0.6 -2,-0.5 -16,-0.5" fill="none" stroke="brown" stroke-width="0.2%"></polyline>
+
+			<polyline class="inner1" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
+			<polyline class="inner2" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
+			<polyline class="outer1" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
+			<polyline class="outer2" points="" fill="none" stroke="black" stroke-width="0.2%"></polyline>
+		</svg>
+	</div>
+</div>

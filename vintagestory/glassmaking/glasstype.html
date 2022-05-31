@@ -1,70 +1,46 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-		<script type="text/javascript" src="/script.js"></script>
-		<link rel="stylesheet" href="/style.css">
-	</head>
-	<body>
-		<div class="sidebar list">
-			<h4 class="item"><b>Menu</b></h4>
-			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
-			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
-			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding blowing mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/castmoldrecipe.html">Adding casting mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
-		</div>
-		<div class="content">
-			<div class="text-content">
-				<h3>Adding custom glass</h3>
-				<p>
-					To add your own glass type, you need to create a file <code>assets/MODID/worldproperties/abstract/glasstype.json</code> and write there:
-				</p>
-				<pre><code class="language-json">
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Adding custom glass
+---
+<h3>Adding custom glass</h3>
+<p>
+	To add your own glass type, you need to create a file <code>assets/MODID/worldproperties/abstract/glasstype.json</code> and write there:
+</p>
+<pre><code class="language-json">
 {
-	"code": "glasstype",
-	"variants": [
-		{
-			"code": "CODE",
-			"meltingPoint": TEMPERATURE
-		}
-	]
+"code": "glasstype",
+"variants": [
+{
+"code": "CODE",
+"meltingPoint": TEMPERATURE
 }
-				</code></pre>
-				<p>
-					Where <code>CODE</code> is the glass codename and <code>TEMPERATURE</code> is a number, the melting point in Celsius.
-					<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/game/worldproperties/abstract/glasstype.json" target="_blank">Example on github.</a>
-				</p>
-				<p>Note that this temperature is multiplied by 1.1 (i.e. +10%) for bubbling, so consider the smeltery maximum temperature when setting the melting temperature.</p>
-				<p>
-					To add a glass name to a lang file, use the format <code>MODID:glassblend-CODE</code>, for example <code>game:glassblend-plain</code>.
-					You do not need to add <code>glass</code> to the name (like <code>Plain glass</code>), just use <code>Plain</code>.
-				</p>
-				<p>The glass texture should have the path <code>assets/MODID/textures/block/glass/CODE.png</code>.</p>
-				<span class="space"></span>
+]
+}
+</code></pre>
+<p>
+	Where <code>CODE</code> is the glass codename and <code>TEMPERATURE</code> is a number, the melting point in Celsius.
+	<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/game/worldproperties/abstract/glasstype.json" target="_blank">Example on github.</a>
+</p>
+<p>Note that this temperature is multiplied by 1.1 (i.e. +10%) for bubbling, so consider the smeltery maximum temperature when setting the melting temperature.</p>
+<p>
+	To add a glass name to a lang file, use the format <code>MODID:glassblend-CODE</code>, for example <code>game:glassblend-plain</code>.
+	You do not need to add <code>glass</code> to the name (like <code>Plain glass</code>), just use <code>Plain</code>.
+</p>
+<p>The glass texture should have the path <code>assets/MODID/textures/block/glass/CODE.png</code>.</p>
+<span class="space"></span>
 
-				<h4>Adding glass blend</h4>
-				<p>In order for the glass above to be smelted in the smelter, create an item with the "glassmaking:glassblend" attribute:</p>
-				<pre><code class="language-json">
+<h4>Adding glass blend</h4>
+<p>In order for the glass above to be smelted in the smelter, create an item with the "glassmaking:glassblend" attribute:</p>
+<pre><code class="language-json">
 "attributes": {
-	"glassmaking:glassblend": {
-		"code": "CODE",
-		"amount": AMOUNT
-	}
+"glassmaking:glassblend": {
+"code": "CODE",
+"amount": AMOUNT
 }
-				</code></pre>
-				<p>
-					Where <code>CODE</code> is the glass codename and <code>AMOUNT</code> is the number of units that can be obtained by smelting this item.
-					<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/glassmaking/itemtypes/glasssblend.json" target="_blank">Example on github.</a>
-				</p>
-				<p>1000 units of glass are equivalent to one block by volume, keep this in mind.</p>
-			</div>
-		</div>
-		<script>hljs.highlightAll();</script>
-	</body>
-</html>
+}
+</code></pre>
+<p>
+	Where <code>CODE</code> is the glass codename and <code>AMOUNT</code> is the number of units that can be obtained by smelting this item.
+	<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/glassmaking/itemtypes/glasssblend.json" target="_blank">Example on github.</a>
+</p>
+<p>1000 units of glass are equivalent to one block by volume, keep this in mind.</p>

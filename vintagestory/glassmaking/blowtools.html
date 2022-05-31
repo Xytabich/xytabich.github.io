@@ -1,160 +1,136 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-		<link rel="stylesheet" href="/style.css">
-		<script type="text/javascript" src="/script.js"></script>
-	</head>
-	<body>
-		<div class="sidebar list">
-			<h4 class="item"><b>Menu</b></h4>
-			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
-			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
-			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding blowing mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/castmoldrecipe.html">Adding casting mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
-		</div>
-		<div class="content">
-			<div class="text-content">
-				<h3>Glassblower tools</h3>
-				<p>Description of behaviors for actions and tools. Available actions are listed for behaviors, which can be used in the blowing recipe.</p>
-				<p>If you want to add your own tool, you can use the described behaviors.</p>
-				<ul>
-					<li><a href="#gbt-tooluse">ToolUse</a></li>
-					<li><a href="#gbt-dryable">DryableTool</a></li>
-					<li><a href="#gbt-blowing">BlowingTool</a></li>
-					<li><a href="#gbt-glassintake">GlassIntakeTool</a></li>
-				</ul>
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Glassblower tools
+---
+<h3>Glassblower tools</h3>
+<p>Description of behaviors for actions and tools. Available actions are listed for behaviors, which can be used in the blowing recipe.</p>
+<p>If you want to add your own tool, you can use the described behaviors.</p>
+<ul>
+	<li><a href="#gbt-tooluse">ToolUse</a></li>
+	<li><a href="#gbt-dryable">DryableTool</a></li>
+	<li><a href="#gbt-blowing">BlowingTool</a></li>
+	<li><a href="#gbt-glassintake">GlassIntakeTool</a></li>
+</ul>
 
-				<a id="gbt-tooluse"></a>
-				<h4>ToolUse</h4>
-				<p>Using the tool for some time, after which some durability will be used.</p>
-				<p>This behavior is used for: <code>flare</code>, <code>recess</code>, <code>stretch</code>, <code>cutoff</code>, <code>incise</code></p>
-				<p>Behavior description:</p>
-				<pre><code class="language-json">
+<a id="gbt-tooluse"></a>
+<h4>ToolUse</h4>
+<p>Using the tool for some time, after which some durability will be used.</p>
+<p>This behavior is used for: <code>flare</code>, <code>recess</code>, <code>stretch</code>, <code>cutoff</code>, <code>incise</code></p>
+<p>Behavior description:</p>
+<pre><code class="language-json">
 {
-	"name": "glassmaking:gbt-tooluse",
-	"properties": {
-		"tool": "...",
-		"minTier": ...,
-		"transform": { ... },
-		"animation": { ... },
-		"speed": ...
-	}
+"name": "glassmaking:gbt-tooluse",
+"properties": {
+"tool": "...",
+"minTier": ...,
+"transform": { ... },
+"animation": { ... },
+"speed": ...
 }
-				</code></pre>
-				<ul>
-					<li>The <code>tool</code> parameter is the name of the tool or action that is used in the recipe.</li>
-					<li>The <code>minTier</code> parameter is the minimum tool level that can be used for this action (5 by default).</li>
-					<li>The <code>transform</code> parameter is the transformation that the tool assumes when used (without transformation by default).</li>
-					<li>The <code>animation</code> parameter is the transformation to which the tool periodically moves during the animation (<code>transform</code> value by default).</li>
-					<li>The <code>speed</code> parameter is the animation speed (1 by default).</li>
-				</ul>
-				<p>The animation is periodic, from <code>transform</code> to <code>animation</code> based on a sine wave.</p>
-				<p>Attributes in the recipe:</p>
-				<pre><code class="language-json">
+}
+</code></pre>
+<ul>
+	<li>The <code>tool</code> parameter is the name of the tool or action that is used in the recipe.</li>
+	<li>The <code>minTier</code> parameter is the minimum tool level that can be used for this action (5 by default).</li>
+	<li>The <code>transform</code> parameter is the transformation that the tool assumes when used (without transformation by default).</li>
+	<li>The <code>animation</code> parameter is the transformation to which the tool periodically moves during the animation (<code>transform</code> value by default).</li>
+	<li>The <code>speed</code> parameter is the animation speed (1 by default).</li>
+</ul>
+<p>The animation is periodic, from <code>transform</code> to <code>animation</code> based on a sine wave.</p>
+<p>Attributes in the recipe:</p>
+<pre><code class="language-json">
 {
-	"time": ...,
-	"damage": ...
+"time": ...,
+"damage": ...
 }
-				</code></pre>
-				<ul>
-					<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-					<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
-				</ul>
-				<span class="space"></span>
+</code></pre>
+<ul>
+	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
+	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
+</ul>
+<span class="space"></span>
 
-				<a id="gbt-dryable"></a>
-				<h4>DryableTool</h4>
-				<p>
-					Special behavior for wet tools.
-					In addition to consuming durability, some tool humidity will also be consumed.
-				</p>
-				<p>This behavior is used for: <code>flatten</code>, <code>squeeze</code></p>
-				<p>Behavior description:</p>
-				<pre><code class="language-json">
+<a id="gbt-dryable"></a>
+<h4>DryableTool</h4>
+<p>
+	Special behavior for wet tools.
+	In addition to consuming durability, some tool humidity will also be consumed.
+</p>
+<p>This behavior is used for: <code>flatten</code>, <code>squeeze</code></p>
+<p>Behavior description:</p>
+<pre><code class="language-json">
 {
-	"name": "glassmaking:gbt-dryable",
-	"properties": {
-		"tool": "...",
-		"transform": { ... },
-		"animation": { ... },
-		"speed": ...
-	}
+"name": "glassmaking:gbt-dryable",
+"properties": {
+"tool": "...",
+"transform": { ... },
+"animation": { ... },
+"speed": ...
 }
-				</code></pre>
-				<p>Parameters description same as <a href="#gbt-tooluse">ToolUse</a>.</p>
-				<p>Attributes in the recipe:</p>
-				<pre><code class="language-json">
+}
+</code></pre>
+<p>Parameters description same as <a href="#gbt-tooluse">ToolUse</a>.</p>
+<p>Attributes in the recipe:</p>
+<pre><code class="language-json">
 {
-	"time": ...,
-	"damage": ...,
-	"consume": ...
+"time": ...,
+"damage": ...,
+"consume": ...
 }
-				</code></pre>
-				<ul>
-					<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-					<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
-					<li>The <code>consume</code> parameter determines how much humidity will be taken from the tool.</li>
-				</ul>
-				<span class="space"></span>
+</code></pre>
+<ul>
+	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
+	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
+	<li>The <code>consume</code> parameter determines how much humidity will be taken from the tool.</li>
+</ul>
+<span class="space"></span>
 
-				<a id="gbt-blowing"></a>
-				<h4>BlowingTool</h4>
-				<p>Behavior for the glass blower's pipe, has an animation of putting the pipe to the "mouth".</p>
-				<p>This behavior is used for: <code>blowing</code></p>
-				<p>Behavior description:</p>
-				<pre><code class="language-json">
+<a id="gbt-blowing"></a>
+<h4>BlowingTool</h4>
+<p>Behavior for the glass blower's pipe, has an animation of putting the pipe to the "mouth".</p>
+<p>This behavior is used for: <code>blowing</code></p>
+<p>Behavior description:</p>
+<pre><code class="language-json">
 {
-	"name": "glassmaking:gbt-blowing",
-	"properties": {
-		"tool": "blowing"
-	}
+"name": "glassmaking:gbt-blowing",
+"properties": {
+"tool": "blowing"
 }
-				</code></pre>
-				<p>Attributes in the recipe:</p>
-				<pre><code class="language-json">
+}
+</code></pre>
+<p>Attributes in the recipe:</p>
+<pre><code class="language-json">
 {
-	"time": ...
+"time": ...
 }
-				</code></pre>
-				<ul>
-					<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-				</ul>
-				<span class="space"></span>
+</code></pre>
+<ul>
+	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
+</ul>
+<span class="space"></span>
 
-				<a id="gbt-glassintake"></a>
-				<h4>GlassIntakeTool</h4>
-				<p>Behavior for a glass blower's pipe. Retrieves a specific type of glass from the smeltery.</p>
-				<p>This behavior is used for: <code>glassintake</code></p>
-				<p>Behavior description:</p>
-				<pre><code class="language-json">
+<a id="gbt-glassintake"></a>
+<h4>GlassIntakeTool</h4>
+<p>Behavior for a glass blower's pipe. Retrieves a specific type of glass from the smeltery.</p>
+<p>This behavior is used for: <code>glassintake</code></p>
+<p>Behavior description:</p>
+<pre><code class="language-json">
 {
-	"name": "glassmaking:gbt-glassintake",
-	"properties": {
-		"tool": "glassintake"
-	}
+"name": "glassmaking:gbt-glassintake",
+"properties": {
+"tool": "glassintake"
 }
-				</code></pre>
-				<p>Attributes in the recipe:</p>
-				<pre><code class="language-json">
+}
+</code></pre>
+<p>Attributes in the recipe:</p>
+<pre><code class="language-json">
 {
-	"code": "...",
-	"amount": ...
+"code": "...",
+"amount": ...
 }
-				</code></pre>
-				<ul>
-					<li>The <code>code</code> parameter defines the type of glass that is required.</li>
-					<li>The <code>amount</code> parameter determines the amount of glass that needs to be collected.</li>
-				</ul>
-				<p>1000 units of glass are equivalent to one block by volume.</p>
-			</div>
-		</div>
-		<script>hljs.highlightAll();</script>
-	</body>
-</html>
+</code></pre>
+<ul>
+	<li>The <code>code</code> parameter defines the type of glass that is required.</li>
+	<li>The <code>amount</code> parameter determines the amount of glass that needs to be collected.</li>
+</ul>
+<p>1000 units of glass are equivalent to one block by volume.</p>

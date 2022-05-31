@@ -1,69 +1,46 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-		<script type="text/javascript" src="/script.js"></script>
-		<link rel="stylesheet" href="/style.css">
-	</head>
-	<body>
-		<div class="sidebar list">
-			<h4 class="item"><b>Menu</b></h4>
-			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
-			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
-			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding blowing mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/castmoldrecipe.html">Adding casting mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
-		</div>
-		<div class="content">
-			<div class="text-content">
-				<h3>Adding mold</h3>
-				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassshape.json" target="_blank">Example on github.</a></p>
-				<p>To add an annealing recipe, you must specify the temperature regime, the annealing time, and the output item in the item's attributes.</p>
-				<pre><code class="language-json">
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Annealing recipe
+---
+<h3>Adding mold</h3>
+<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassshape.json" target="_blank">Example on github.</a></p>
+<p>To add an annealing recipe, you must specify the temperature regime, the annealing time, and the output item in the item's attributes.</p>
+<pre><code class="language-json">
 {
-	"attributes": {
-		"glassmaking:anneal": {
-			"temperature": {
-				"min": ...,
-				"max": ...
-			},
-			"time": ...,
-			"output": {
-				"type": "...",
-				"code": "..."
-			}
-		}
-	}
+"attributes": {
+"glassmaking:anneal": {
+"temperature": {
+"min": ...,
+"max": ...
+},
+"time": ...,
+"output": {
+"type": "...",
+"code": "..."
 }
-				</code></pre>
-				<ul>
-					<li><code>temperature</code> - temperature regime: first, the object must be heated to the maximum temperature, and then kept above the minimum temperature for the specified time.</li>
-					<li><code>time</code> - how long it is necessary to keep the temperature above the minimum, specify in seconds of the in-game calendar.</li>
-					<li><code>output</code> - output item stack.</li>
-				</ul>
-				<p>Additional attributes:</p>
-				<pre><code class="language-json">
+}
+}
+}
+</code></pre>
+<ul>
+	<li><code>temperature</code> - temperature regime: first, the object must be heated to the maximum temperature, and then kept above the minimum temperature for the specified time.</li>
+	<li><code>time</code> - how long it is necessary to keep the temperature above the minimum, specify in seconds of the in-game calendar.</li>
+	<li><code>output</code> - output item stack.</li>
+</ul>
+<p>Additional attributes:</p>
+<pre><code class="language-json">
 {
-	"attributes": {
-		"annealerSize": ...,
-		"annealerTransform": ...
-	}
+"attributes": {
+"annealerSize": ...,
+"annealerTransform": ...
 }
-				</code></pre>
-				<ul>
-					<li>
-						<code>annealerSize</code> allows you to set the relative size of an item in the annealer, allowing you to place many small items or one large item.
-						Size 1 allows only 1 item, size 0.5 is 2*2=4 items, and so on.
-					</li>
-					<li><code>annealerTransform</code> - relative transformation of an object inside an annealer.</li>
-				</ul>
-			</div>
-		</div>
-		<script>hljs.highlightAll();</script>
-	</body>
-</html>
+}
+</code></pre>
+<ul>
+	<li>
+		<code>annealerSize</code> allows you to set the relative size of an item in the annealer, allowing you to place many small items or one large item.
+		Size 1 allows only 1 item, size 0.5 is 2*2=4 items, and so on.
+	</li>
+	<li><code>annealerTransform</code> - relative transformation of an object inside an annealer.</li>
+</ul>
+</div>

@@ -1,85 +1,61 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-		<script type="text/javascript" src="/script.js"></script>
-		<link rel="stylesheet" href="/style.css">
-	</head>
-	<body>
-		<div class="sidebar list">
-			<h4 class="item"><b>Menu</b></h4>
-			<a class="item-link" src="/vintagestory/glassmaking/index.html">Overview</a>
-			<a class="item-link" src="/vintagestory/glassmaking/glasstype.html">Adding custom glass</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowrecipe.html">Adding blowing recipe</a>
-			<a class="item-link" src="/vintagestory/glassmaking/blowtools.html">Glassblower tools</a>
-			<a class="item-link" src="/vintagestory/glassmaking/moldrecipe.html">Adding blowing mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/castmoldrecipe.html">Adding casting mold</a>
-			<a class="item-link" src="/vintagestory/glassmaking/annealing.html">Annealing recipe</a>
-		</div>
-		<div class="content">
-			<div class="text-content">
-				<h3>Adding mold</h3>
-				<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassmold.json" target="_blank">Example on github.</a></p>
-				<p>Parameters used by molds:</p>
-				<pre><code class="language-json">
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Adding blowing mold
+---
+<h3>Adding mold</h3>
+<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassmold.json" target="_blank">Example on github.</a></p>
+<p>Parameters used by molds:</p>
+<pre><code class="language-json">
 {
-    "class": "glassmaking:glassmold",
-    "entityClass": "glassmaking:glassmold",
-    "variantgroups": [
-        {
-            "code": "state",
-            "states": [ "opened", "closed" ]
-        }
-    ],
-    "attributes": {
-		"glassmaking:glassmold": {
-			"output": {
-				"type": "...",
-				"code": "..."
-			},
-			"recipe": [
-				{
-					"name": "...",
-					"code": "...",
-					"allowedVariants": [...],
-					"amount": ...,
-					"var": ...
-				}
-			],
-			"fillTime": ...
-		},
-		"contentsTransform": { ... }
-	}
+"class": "glassmaking:glassmold",
+"entityClass": "glassmaking:glassmold",
+"variantgroups": [
+{
+"code": "state",
+"states": [ "opened", "closed" ]
 }
-				</code></pre>
-				<p>To specify that a block is a mold, you need to use the block and entity class <code>glassmaking:glassmold</code>.</p>
-				<p>The recipe is described in the <code>glassmaking:glassmold</code> attribute:</p>
-				<ul>
-					<li><code>output</code> - what item will be crafted.</li>
-					<li><code>recipe</code> - a recipe for creating, you can use layers with several types of glass.
-						<ul>
-							<li><code>code</code> - glass code</li>
-							<li><code>amount</code> - required amount of glass (1000 units of glass are equivalent to one block by volume)</li>
-							<li>
-								<code>var</code> - by how many units the <code>amount</code> value can be exceeded.
-								Specify if the recipe requires an exact amount. By default, a layer can consist of any amount of glass.
-							</li>
-							<li><code>name</code> - the name used for the wildcard</li>
-							<li><code>allowedVariants</code> - allowed variants for wildcard</li>
-						</ul>
-					</li>
-					<li><code>fillTime</code> - how many seconds the mold will fill (3 seconds by default).</li>
-				</ul>
-				<p>If <code>variantgroups</code> is used with the code <code>state</code>, mold blowing is only possible in the closed state.</p>
-				<p>
-					If the <code>contentsTransform</code> attribute is specified, then the form will store the result in the internal inventory and display it until the item is picked up.
-					In the closed state, the item is not displayed.
-				</p>
-			</div>
-		</div>
-		<script>hljs.highlightAll();</script>
-	</body>
-</html>
+],
+"attributes": {
+"glassmaking:glassmold": {
+"output": {
+"type": "...",
+"code": "..."
+},
+"recipe": [
+{
+	"name": "...",
+	"code": "...",
+	"allowedVariants": [...],
+	"amount": ...,
+	"var": ...
+}
+],
+"fillTime": ...
+},
+"contentsTransform": { ... }
+}
+}
+</code></pre>
+<p>To specify that a block is a mold, you need to use the block and entity class <code>glassmaking:glassmold</code>.</p>
+<p>The recipe is described in the <code>glassmaking:glassmold</code> attribute:</p>
+<ul>
+	<li><code>output</code> - what item will be crafted.</li>
+	<li><code>recipe</code> - a recipe for creating, you can use layers with several types of glass.
+		<ul>
+			<li><code>code</code> - glass code</li>
+			<li><code>amount</code> - required amount of glass (1000 units of glass are equivalent to one block by volume)</li>
+			<li>
+				<code>var</code> - by how many units the <code>amount</code> value can be exceeded.
+				Specify if the recipe requires an exact amount. By default, a layer can consist of any amount of glass.
+			</li>
+			<li><code>name</code> - the name used for the wildcard</li>
+			<li><code>allowedVariants</code> - allowed variants for wildcard</li>
+		</ul>
+	</li>
+	<li><code>fillTime</code> - how many seconds the mold will fill (3 seconds by default).</li>
+</ul>
+<p>If <code>variantgroups</code> is used with the code <code>state</code>, mold blowing is only possible in the closed state.</p>
+<p>
+	If the <code>contentsTransform</code> attribute is specified, then the form will store the result in the internal inventory and display it until the item is picked up.
+	In the closed state, the item is not displayed.
+</p>
