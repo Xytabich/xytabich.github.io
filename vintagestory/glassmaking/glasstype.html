@@ -6,7 +6,7 @@ title: Xytabich > Glassmaking > Adding custom glass
 <p>
 	To add your own glass type, you need to create a file <code>assets/MODID/worldproperties/abstract/glasstype.json</code> and write there:
 </p>
-<pre><code class="language-json">
+{% highlight json %}
 {
 "code": "glasstype",
 "variants": [
@@ -16,7 +16,7 @@ title: Xytabich > Glassmaking > Adding custom glass
 }
 ]
 }
-</code></pre>
+{% endhighlight %}
 <p>
 	Where <code>CODE</code> is the glass codename and <code>TEMPERATURE</code> is a number, the melting point in Celsius.
 	<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/game/worldproperties/abstract/glasstype.json" target="_blank">Example on github.</a>
@@ -31,14 +31,14 @@ title: Xytabich > Glassmaking > Adding custom glass
 
 <h4>Adding glass blend</h4>
 <p>In order for the glass above to be smelted in the smelter, create an item with the "glassmaking:glassblend" attribute:</p>
-<pre><code class="language-json">
+{% highlight json %}
 "attributes": {
 "glassmaking:glassblend": {
 "code": "CODE",
 "amount": AMOUNT
 }
 }
-</code></pre>
+{% endhighlight %}
 <p>
 	Where <code>CODE</code> is the glass codename and <code>AMOUNT</code> is the number of units that can be obtained by smelting this item.
 	<a href="https://github.com/Xytabich/Glassmaking/blob/master/assets/glassmaking/itemtypes/glasssblend.json" target="_blank">Example on github.</a>

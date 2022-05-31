@@ -5,7 +5,7 @@ title: Xytabich > Glassmaking > Annealing recipe
 <h3>Adding mold</h3>
 <p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/blocktypes/glassshape.json" target="_blank">Example on github.</a></p>
 <p>To add an annealing recipe, you must specify the temperature regime, the annealing time, and the output item in the item's attributes.</p>
-<pre><code class="language-json">
+{% highlight json %}
 {
 "attributes": {
 "glassmaking:anneal": {
@@ -21,21 +21,21 @@ title: Xytabich > Glassmaking > Annealing recipe
 }
 }
 }
-</code></pre>
+{% endhighlight %}
 <ul>
 	<li><code>temperature</code> - temperature regime: first, the object must be heated to the maximum temperature, and then kept above the minimum temperature for the specified time.</li>
 	<li><code>time</code> - how long it is necessary to keep the temperature above the minimum, specify in seconds of the in-game calendar.</li>
 	<li><code>output</code> - output item stack.</li>
 </ul>
 <p>Additional attributes:</p>
-<pre><code class="language-json">
+{% highlight json %}
 {
 "attributes": {
 "annealerSize": ...,
 "annealerTransform": ...
 }
 }
-</code></pre>
+{% endhighlight %}
 <ul>
 	<li>
 		<code>annealerSize</code> allows you to set the relative size of an item in the annealer, allowing you to place many small items or one large item.
