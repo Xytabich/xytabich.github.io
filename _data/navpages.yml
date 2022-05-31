@@ -5,5 +5,5 @@
   nohref: true
   submenu: true
   items:
-    - link: vintagestory/glassmaking/index.html
+    - link: /vintagestory/glassmaking/index.html
       title: Glassmaking
