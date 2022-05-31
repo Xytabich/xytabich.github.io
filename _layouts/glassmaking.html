@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 <div class="sidebar list">
 	<h4 class="item"><b>Menu</b></h4>
 	{% for m in site.data.vintagestory.glassmaking.navmenu %}
@@ -12,3 +14,14 @@ layout: default
 		{{ content }}
 	</div>
 </div>
+<script>
+	if(typeof hljs != "undefined") {
+		hljs.addPlugin({
+			"before:highlight": function(info)
+			{
+				info.code = info.code.trim().replaceAll("\t", "    ");
+			}
+		});
+		hljs.highlightAll();
+	}
+</script>

@@ -13,7 +13,7 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 <p>
 	To add a new blowing recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassblowing/</code> folder and write there:
 </p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"code": "RECIPECODE",
 	"output": {
@@ -22,10 +22,10 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 	},
 	"steps": []
 }
-{% endhighlight %}
+</code></pre>
 <p>Blowing consists of several steps, each step describes the tool or action used in the process, as well as the shape that will be obtained as a result of this step.</p>
 <p>As an example, a step with glass intake from a smeltery:</p>
-{% highlight json %}
+<pre><code class="language-json">
 "steps": [
 	{
 		"tool": "glassintake",
@@ -64,7 +64,7 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 		}
 	}
 ]
-{% endhighlight %}
+</code></pre>
 <p>The <code>tool</code> field contains the name of the tool or action.</p>
 <p>The <code>attributes</code> field contains additional data that the tool uses.</p>
 <p>The optional <code>shape</code> field contains information about the shape of the workpiece that it will take as a result of this step:</p>

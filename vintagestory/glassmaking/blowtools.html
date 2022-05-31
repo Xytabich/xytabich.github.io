@@ -17,7 +17,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 <p>Using the tool for some time, after which some durability will be used.</p>
 <p>This behavior is used for: <code>flare</code>, <code>recess</code>, <code>stretch</code>, <code>cutoff</code>, <code>incise</code></p>
 <p>Behavior description:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"name": "glassmaking:gbt-tooluse",
 	"properties": {
@@ -28,7 +28,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 		"speed": ...
 	}
 }
-{% endhighlight %}
+</code></pre>
 <ul>
 	<li>The <code>tool</code> parameter is the name of the tool or action that is used in the recipe.</li>
 	<li>The <code>minTier</code> parameter is the minimum tool level that can be used for this action (5 by default).</li>
@@ -38,12 +38,12 @@ title: Xytabich > Glassmaking > Glassblower tools
 </ul>
 <p>The animation is periodic, from <code>transform</code> to <code>animation</code> based on a sine wave.</p>
 <p>Attributes in the recipe:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"time": ...,
 	"damage": ...
 }
-{% endhighlight %}
+</code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
 	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
@@ -58,7 +58,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 </p>
 <p>This behavior is used for: <code>flatten</code>, <code>squeeze</code></p>
 <p>Behavior description:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"name": "glassmaking:gbt-dryable",
 	"properties": {
@@ -68,16 +68,16 @@ title: Xytabich > Glassmaking > Glassblower tools
 		"speed": ...
 	}
 }
-{% endhighlight %}
+</code></pre>
 <p>Parameters description same as <a href="#gbt-tooluse">ToolUse</a>.</p>
 <p>Attributes in the recipe:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"time": ...,
 	"damage": ...,
 	"consume": ...
 }
-{% endhighlight %}
+</code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
 	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
@@ -90,20 +90,20 @@ title: Xytabich > Glassmaking > Glassblower tools
 <p>Behavior for the glass blower's pipe, has an animation of putting the pipe to the "mouth".</p>
 <p>This behavior is used for: <code>blowing</code></p>
 <p>Behavior description:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"name": "glassmaking:gbt-blowing",
 	"properties": {
 		"tool": "blowing"
 	}
 }
-{% endhighlight %}
+</code></pre>
 <p>Attributes in the recipe:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"time": ...
 }
-{% endhighlight %}
+</code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
 </ul>
@@ -114,21 +114,21 @@ title: Xytabich > Glassmaking > Glassblower tools
 <p>Behavior for a glass blower's pipe. Retrieves a specific type of glass from the smeltery.</p>
 <p>This behavior is used for: <code>glassintake</code></p>
 <p>Behavior description:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"name": "glassmaking:gbt-glassintake",
 	"properties": {
 		"tool": "glassintake"
 	}
 }
-{% endhighlight %}
+</code></pre>
 <p>Attributes in the recipe:</p>
-{% highlight json %}
+<pre><code class="language-json">
 {
 	"code": "...",
 	"amount": ...
 }
-{% endhighlight %}
+</code></pre>
 <ul>
 	<li>The <code>code</code> parameter defines the type of glass that is required.</li>
 	<li>The <code>amount</code> parameter determines the amount of glass that needs to be collected.</li>
