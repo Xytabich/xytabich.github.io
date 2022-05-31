@@ -15,54 +15,54 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 </p>
 {% highlight json %}
 {
-"code": "RECIPECODE",
-"output": {
-"type": "ITEMTYPE",
-"code": "ITEMCODE"
-},
-"steps": []
+	"code": "RECIPECODE",
+	"output": {
+		"type": "ITEMTYPE",
+		"code": "ITEMCODE"
+	},
+	"steps": []
 }
 {% endhighlight %}
 <p>Blowing consists of several steps, each step describes the tool or action used in the process, as well as the shape that will be obtained as a result of this step.</p>
 <p>As an example, a step with glass intake from a smeltery:</p>
 {% highlight json %}
 "steps": [
-{
-"tool": "glassintake",
-"shape": {
-"segments": 13,
-"outer": [
-{
-	"segments": 6,
-	"vertices": [
-		[ -3, 0 ],
-		[ 1, 6 ],
-		[ 6, 6 ],
-		[ 7, 5 ]
-	]
-},
-{
-	"segments": 7,
-	"vertices": [
-		[ 7, 5 ],
-		[ 9, 6 ],
-		[ 14, 6 ],
-		[ 14, 0 ]
-	]
-}
-],
-"inner": [
-[ -3, 0 ],
-[ 1, 4 ],
-[ 7, 4 ],
-[ 7, 0 ]
-]
-},
-"attributes": {
-"code": "game:plain",
-"amount": 128
-}
-}
+	{
+		"tool": "glassintake",
+		"shape": {
+			"segments": 13,
+			"outer": [
+				{
+					"segments": 6,
+					"vertices": [
+						[-3, 0],
+						[1, 6],
+						[6, 6],
+						[7, 5]
+					]
+				},
+				{
+					"segments": 7,
+					"vertices": [
+						[7, 5],
+						[9, 6],
+						[14, 6],
+						[14, 0]
+					]
+				}
+			],
+			"inner": [
+				[-3, 0],
+				[1, 4],
+				[7, 4],
+				[7, 0]
+			]
+		},
+		"attributes": {
+			"code": "game:plain",
+			"amount": 128
+		}
+	}
 ]
 {% endhighlight %}
 <p>The <code>tool</code> field contains the name of the tool or action.</p>

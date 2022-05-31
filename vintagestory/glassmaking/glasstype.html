@@ -8,13 +8,13 @@ title: Xytabich > Glassmaking > Adding custom glass
 </p>
 {% highlight json %}
 {
-"code": "glasstype",
-"variants": [
-{
-"code": "CODE",
-"meltingPoint": TEMPERATURE
-}
-]
+	"code": "glasstype",
+	"variants": [
+		{
+			"code": "CODE",
+			"meltingPoint": TEMPERATURE
+		}
+	]
 }
 {% endhighlight %}
 <p>
@@ -33,10 +33,10 @@ title: Xytabich > Glassmaking > Adding custom glass
 <p>In order for the glass above to be smelted in the smelter, create an item with the "glassmaking:glassblend" attribute:</p>
 {% highlight json %}
 "attributes": {
-"glassmaking:glassblend": {
-"code": "CODE",
-"amount": AMOUNT
-}
+	"glassmaking:glassblend": {
+		"code": "CODE",
+		"amount": AMOUNT
+	}
 }
 {% endhighlight %}
 <p>

@@ -7,33 +7,33 @@ title: Xytabich > Glassmaking > Adding blowing mold
 <p>Parameters used by molds:</p>
 {% highlight json %}
 {
-"class": "glassmaking:glassmold",
-"entityClass": "glassmaking:glassmold",
-"variantgroups": [
-{
-"code": "state",
-"states": [ "opened", "closed" ]
-}
-],
-"attributes": {
-"glassmaking:glassmold": {
-"output": {
-"type": "...",
-"code": "..."
-},
-"recipe": [
-{
-	"name": "...",
-	"code": "...",
-	"allowedVariants": [...],
-	"amount": ...,
-	"var": ...
-}
-],
-"fillTime": ...
-},
-"contentsTransform": { ... }
-}
+	"class": "glassmaking:glassmold",
+	"entityClass": "glassmaking:glassmold",
+	"variantgroups": [
+		{
+			"code": "state",
+			"states": ["opened", "closed"]
+		}
+	],
+	"attributes": {
+		"glassmaking:glassmold": {
+			"output": {
+				"type": "...",
+				"code": "..."
+			},
+			"recipe": [
+				{
+					"name": "...",
+					"code": "...",
+					"allowedVariants": [...],
+					"amount": ...,
+					"var": ...
+				}
+			],
+			"fillTime": ...
+		},
+		"contentsTransform": { ... }
+	}
 }
 {% endhighlight %}
 <p>To specify that a block is a mold, you need to use the block and entity class <code>glassmaking:glassmold</code>.</p>

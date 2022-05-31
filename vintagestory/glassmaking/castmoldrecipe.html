@@ -7,23 +7,23 @@ title: Xytabich > Glassmaking > Adding casting mold
 <p>Parameters used by molds:</p>
 {% highlight json %}
 {
-"class": "glassmaking:castingmold",
-"entityClass": "glassmaking:castingmold",
-"attributes": {
-"glassmaking:castingmold": {
-"recipe": {
-"code": "...",
-"amount": ...,
-"allowedVariants": [...]
-},
-"output": {
-"type": "...",
-"code": "..."
-}
-},
-"fillHeight": ...,
-"fillQuadsByLevel": [...]
-}
+	"class": "glassmaking:castingmold",
+	"entityClass": "glassmaking:castingmold",
+	"attributes": {
+		"glassmaking:castingmold": {
+			"recipe": {
+				"code": "...",
+				"amount": ...,
+				"allowedVariants": [...]
+			},
+			"output": {
+				"type": "...",
+				"code": "..."
+			}
+		},
+		"fillHeight": ...,
+		"fillQuadsByLevel": [...]
+	}
 }
 {% endhighlight %}
 <p>To specify that a block is a mold, you need to use the block and entity class <code>glassmaking:castingmold</code>.</p>
