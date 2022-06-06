@@ -1,0 +1,54 @@
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Adding workbench recipe
+---
+<h3>Adding workbench recipe</h3>
+<p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/recipes/glassworkbench/glassshape.json" target="_blank">Example on github.</a></p>
+<p>To add a new workbench recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassworkbench/</code> folder and write there:</p>
+<pre><code class="language-json">
+{
+	"code": ...,
+	"input": {
+		"name": ...,
+		"type": ...,
+		"code": ...,
+		"allowedVariants": ...
+	},
+	"output": {
+		"type": ...,
+		"code": ...
+	},
+	"steps": []
+}
+</code></pre>
+<p>The <code>code</code> must be unique for each recipe.</p>
+<p>Wildcards can be used for <code>code</code>, <code>output</code> and <code>steps</code>.</p>
+<p>Working on a workbench consists of several steps, each step describes the tool or action used in the process, the time it takes to execute this step, and the shape that will be obtained as a result of this step.</p>
+<p>As an example, a step with a blowtorch:</p>
+<pre><code class="language-json">
+"steps": [
+	{
+		"shape": { "base": "block/glassshape" },
+		"textures": { "glass0": { "base": "game:block/glass/vintage" } },
+		"tools": {
+			"blowtorch": { "temperature": 1300 }
+		},
+		"workpieceTransform": {
+			"translation": {
+				"x": -0.5,
+				"y": 0.6251,
+				"z": 0.2
+			},
+			"scale": 0.25
+		},
+		"useTime": 3
+	}
+]
+</code></pre>
+<ul>
+	<li>The <code>shape</code> parameter is an intermediate preview of the item. Optional parameter.</li>
+	<li>The <code>textures</code> parameter overrides the shape textures. Optional parameter.</li>
+	<li>The <code>tools</code> parameter is a list of tools (and their parameters) required to work at this step.</li>
+	<li>The <code>workpieceTransform</code> parameter is the shape transformation at this step. Optional parameter.</li>
+	<li>The <code>useTime</code> parameter is the number of seconds required to craft an item. If not specified, then the step is performed in one click.</li>
+</ul>

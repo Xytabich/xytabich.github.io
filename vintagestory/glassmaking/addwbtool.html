@@ -1,0 +1,26 @@
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Adding workbench tool
+---
+<h3>Adding workbench tool</h3>
+<p>The mod includes a template for simple tools. This tool is placed on a workbench and can have simple particles while working.</p>
+<p>To define a tool, add the <code>glassmaking:workbenchtool</code> behavior to the item.</p>
+<pre><code class="language-json">
+{
+	"behaviors": {
+		"name": "glassmaking:workbenchtool",
+		"properties": {
+			"code": ...,
+			"isTool": ...
+		}
+	},
+	"attributes": {
+		"workbenchParticles": [ ... ]
+	}
+}
+</code></pre>
+<ul>
+	<li>The <code>code</code> parameter is the tool code used in the recipe step.</li>
+	<li>The <code>isTool</code> parameter can be set to true if you want the item's durability to be wasted. The amount of durability used can be specified in the recipe using <code>toolDurabilityCost</code>.</li>
+	<li>The <code>workbenchParticles</code> parameter is the particles that will be emitted during work on the workbench.</li>
+</ul>

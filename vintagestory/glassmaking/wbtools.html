@@ -1,0 +1,71 @@
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Workbench tools
+---
+<h3>Workbench tools</h3>
+<p>The tools included in the mod are described below, but in addition to them it is also possible to create custom types of tools.</p>
+
+<h4>Lathe</h4>
+<p>Tool code: <code>lathe</code></p>
+<p>The workpiece can be clamped in the jaws and rotated.</p>
+<pre><code class="language-json">
+{
+	"lathe": {
+		"rpm": ...,
+		"transform": { ... },
+		"size": ...
+	}
+}
+</code></pre>
+<ul>
+	<li>The <code>rpm</code> parameter is the number of revolutions per minute.</li>
+	<li>The <code>transform</code> parameter is the transformation of the workpiece relative to the center of the chuck. If this parameter is not defined, the lathe will not control the workpiece transformation.</li>
+	<li>The <code>size</code> parameter is the size of the workpiece, based on which the jaws will be moved apart by a certain distance.</li>
+</ul>
+
+<h4>Blowtorch</h4>
+<p>Tool code: <code>blowtorch</code></p>
+<p>It is used in all operations where it is necessary to heat certain parts of the glass.</p>
+<pre><code class="language-json">
+{
+	"blowtorch": {
+		"temperature": ...
+	}
+}
+</code></pre>
+<ul>
+	<li>The <code>temperature</code> parameter is the minimum temperature that the blowtorch should give.</li>
+</ul>
+
+<h4>Hand items</h4>
+<p>Tool code: <code>handItem</code> or <code>otherHandItem</code></p>
+<p>An item that must be held in hand during crafting. If it is necessary to hold an additional item in second hand, the <code>otherHandItem</code> can be used.</p>
+<pre><code class="language-json">
+{
+	"handItem": {
+		"type": ...,
+		"code": ...,
+		...
+	}
+}
+</code></pre>
+<p>The parameter is "crafting ingredient", i.e. it is possible to specify the type, code, attributes and other parameters.
+If the item should be used as a tool, <code></code>isTool: true</code> can be specified.</p>
+
+<h4>Liquid</h4>
+<p>Tool code: <code>liquid</code></p>
+<p>It is necessary to have a liquid container in hand while crafting.</p>
+<pre><code class="language-json">
+{
+	"liquid": {
+		"type": ...,
+		"code": ...,
+		"requiresLitres": ...
+	}
+}
+</code></pre>
+<ul>
+	<li>The <code>type</code> parameter is the type of liquid portion (block or item).</li>
+	<li>The <code>code</code> parameter is the code of the liquid portion.</li>
+	<li>The <code>requiresLitres</code> parameter is the amount of liquid needed.</li>
+</ul>
