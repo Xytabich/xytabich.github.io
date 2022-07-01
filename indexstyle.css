@@ -1,9 +1,10 @@
-body
+body > header
 {
-	padding-top: 43px;
+	display: block;
+	height: 43px;
 }
 
-body > header
+body > header > .list
 {
 	position: fixed;
 	top: 0;

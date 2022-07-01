@@ -21,20 +21,22 @@
 		</script>
 	</head>
 	<body>
-		<header class="list">
-			{% for p in site.data.navpages %}
-			{% if p.submenu %}
-			<div class="list-root">
+		<header>
+			<div class="list">
+				{% for p in site.data.navpages %}
+				{% if p.submenu %}
+				<div class="list-root">
+					<a class="item-link{% if p.link == page.url %} active{% endif %}" {% if p.nohref==null %} href="{{ p.link }}" {% endif %}>{{ p.title }}</a>
+					<ul>{% for s in p.items %}
+						<li><a class="item-link{% if s.link == page.url %} active{% endif %}" href="{{ s.link }}">{{ s.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% else %}
 				<a class="item-link{% if p.link == page.url %} active{% endif %}" {% if p.nohref==null %} href="{{ p.link }}" {% endif %}>{{ p.title }}</a>
-				<ul>{% for s in p.items %}
-					<li><a class="item-link{% if s.link == page.url %} active{% endif %}" href="{{ s.link }}">{{ s.title }}</a></li>
-					{% endfor %}
-				</ul>
+				{% endif %}
+				{% endfor %}
 			</div>
-			{% else %}
-			<a class="item-link{% if p.link == page.url %} active{% endif %}" {% if p.nohref==null %} href="{{ p.link }}" {% endif %}>{{ p.title }}</a>
-			{% endif %}
-			{% endfor %}
 		</header>
 		{{ content }}
 	</body>
