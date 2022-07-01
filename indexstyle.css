@@ -1,11 +1,5 @@
 body > header
 {
-	display: block;
-	height: 43px;
-}
-
-body > header > .list
-{
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -73,20 +67,4 @@ body > header .list-root > ul .item-link
 body > header .list-root > ul .item-link:hover
 {
 	background-color: #ccc;
-}
-
-body > content
-{
-	display: block;
-	position: relative;
-	height: 100%;
-}
-
-body > content > object
-{
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
 }
