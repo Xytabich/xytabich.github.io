@@ -23,20 +23,15 @@ title: Xytabich > Glassmaking > Glassblower tools
 	"properties": {
 		"tool": "...",
 		"minTier": ...,
-		"transform": { ... },
-		"animation": { ... },
-		"speed": ...
+		"animation": "..."
 	}
 }
 </code></pre>
 <ul>
 	<li>The <code>tool</code> parameter is the name of the tool or action that is used in the recipe.</li>
 	<li>The <code>minTier</code> parameter is the minimum tool level that can be used for this action (5 by default).</li>
-	<li>The <code>transform</code> parameter is the transformation that the tool assumes when used (without transformation by default).</li>
-	<li>The <code>animation</code> parameter is the transformation to which the tool periodically moves during the animation (<code>transform</code> value by default).</li>
-	<li>The <code>speed</code> parameter is the animation speed (1 by default).</li>
+	<li>The <code>animation</code> parameter is the code for the character animation activated while using the tool.</li>
 </ul>
-<p>The animation is periodic, from <code>transform</code> to <code>animation</code> based on a sine wave.</p>
 <p>Attributes in the recipe:</p>
 <pre><code class="language-json">
 {
@@ -63,9 +58,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 	"name": "glassmaking:gbt-dryable",
 	"properties": {
 		"tool": "...",
-		"transform": { ... },
-		"animation": { ... },
-		"speed": ...
+		"animation": "..."
 	}
 }
 </code></pre>
@@ -80,7 +73,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 </code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
+	<li>The <code>damage</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
 	<li>The <code>consume</code> parameter determines how much humidity will be taken from the tool.</li>
 </ul>
 <span class="space"></span>
@@ -94,7 +87,8 @@ title: Xytabich > Glassmaking > Glassblower tools
 {
 	"name": "glassmaking:gbt-blowing",
 	"properties": {
-		"tool": "blowing"
+		"tool": "blowing",
+		"animation": "..."
 	}
 }
 </code></pre>
@@ -118,7 +112,8 @@ title: Xytabich > Glassmaking > Glassblower tools
 {
 	"name": "glassmaking:gbt-glassintake",
 	"properties": {
-		"tool": "glassintake"
+		"tool": "glassintake",
+		"animation": "..."
 	}
 }
 </code></pre>
