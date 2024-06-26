@@ -1,0 +1,168 @@
+---
+layout: pomdrafts
+title: Xytabich > Drafts > Triggers
+---
+<h3>Triggers</h3>
+<p>A trigger is a mechanism for 'learning' a draft when a certain condition is met.</p>
+<p>The mod already has some built-in triggers, but if you want to add your own, you can use the extension method <code>DraftsModSystem.TryLearnDraft(IPlayer player, AssetLocation draftCode)</code>.</p>
+
+<h3>List of built-in triggers</h3>
+<p>All built-in triggers are behaviors and are added via a list of behaviors in json.</p>
+<h4>Item triggers</h4>
+<p>Json structure:</p>
+<pre><code class="language-json">
+{
+	...
+	"behaviors": [
+		{
+			"name": "TRIGGER_NAME",
+			"properties": {
+				"draft": "...",
+				"target": {
+					"type": "...",
+					"code": "...",
+					"allowedVariants": ["..."],
+				},
+			}
+		}
+	],
+	...
+}
+</code></pre>
+<ul>
+	<li><code>pomdrafts:trigger-item-interact</code> - triggers when using an item (RMB). Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>target</code> - optional parameter indicating the target to be interacted with.
+				<ul>
+					<li><code>type</code> - type of target for interaction, <code>"block"</code> or <code>"entity"</code>.</li>
+					<li><code>code</code> - block or entity code, may be wildcard.</li>
+					<li><code>allowedVariants</code> - list of allowed wildcard variants.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-item-attack</code> - triggers when attacking with an item (LMB). Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>target</code> - optional parameter indicating the target to be interacted with.
+				<ul>
+					<li><code>type</code> - type of target for interaction, <code>"block"</code> or <code>"entity"</code>.</li>
+					<li><code>code</code> - block or entity code, may be wildcard.</li>
+					<li><code>allowedVariants</code> - list of allowed wildcard variants.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-item-mining</code> - triggers when a block is broken by the item. Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>target</code> - optional parameter indicating the target to be interacted with.
+				<ul>
+					<li><code>code</code> - block code, may be wildcard.</li>
+					<li><code>allowedVariants</code> - list of allowed wildcard variants.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<h4>Block triggers</h4>
+<p>Json structure:</p>
+<pre><code class="language-json">
+{
+	...
+	"behaviors": [
+		{
+			"name": "TRIGGER_NAME",
+			"properties": {
+				"draft": "...",
+				"byItem": {
+					"type": "...",
+					"code": "...",
+					...
+				},
+			}
+		}
+	],
+	...
+}
+</code></pre>
+<ul>
+	<li><code>pomdrafts:trigger-block-interact</code> - triggers when interacting with a block in the world (RMB). Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to interact with the block.</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-block-break</code> - triggers when a block is broken by a player. Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to break the block.</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-block-place</code> - triggers when a block is placed by a player. Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to place the block.</li>
+		</ul>
+	</li>
+</ul>
+<h4>Entity triggers</h4>
+<p>Json structure:</p>
+<pre><code class="language-json">
+{
+	...
+	"behaviors": [
+		{
+			"code": "TRIGGER_NAME",
+			"draft": "...",
+			"byItem": {
+				"type": "...",
+				"code": "...",
+				...
+			},
+		}
+	],
+	...
+}
+</code></pre>
+<ul>
+	<li><code>pomdrafts:trigger-entity-interact</code> - triggers when interacting with an entity in the world (RMB). Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to interact with an entity.</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-entity-attack</code> - triggers when player attacks the entity. Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to attack the entity.</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-entity-death</code> - triggers when an entity dies from a player. Properties:
+		<ul>
+			<li><code>draft</code> - draft code to be learned.</li>
+			<li><code>byItem</code> - optional itemstack describing the item that should be used to kill the entity.</li>
+		</ul>
+	</li>
+	<li><code>pomdrafts:trigger-player-attack</code> - triggers when the entity attacks the player.</li>
+	<li><code>pomdrafts:trigger-dialogue</code> - adds the ability to use dialogue triggers for NPCs.</li>
+</ul>
+<ph4>Dialogue trigger</ph4>
+<p>Learns the draft when executing a trigger placed in the dialogue.</p>
+<p>Json structure:</p>
+<pre><code class="language-json">
+{
+	components: [
+		...
+		{
+			...
+			trigger: "pomdrafts:givedraft",
+			triggerdata: {
+				"draft": "..."
+			},
+		},
+		...
+	]
+}
+</code></pre>

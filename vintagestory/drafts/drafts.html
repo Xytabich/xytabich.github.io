@@ -1,0 +1,54 @@
+---
+layout: pomdrafts
+title: Xytabich > Drafts > Structure
+---
+<h3>Drafts</h3>
+<p>Drafts are pieces used to create blueprints on the drafting table.</p>
+<p>The draft consists of an image, a shape, and a list of input and output ports.</p>
+<p>The draft shape consists of cells, and each cell can have inputs and outputs. A draft can have a shape of any complexity, but shapes that are too large may not fit on some canvases.</p>
+<p>Drafts are individual for each player, and are added to the player using triggers.</p>
+
+<h3>Adding draft</h3>
+<p>Drafts can be added by implementing the <a href="https://github.com/Xytabich/PomDrafts/blob/main/src/Common/IDraftsDescriptor.cs"><code>IDraftsDescriptor</code></a> interface in <code>CollectibleBehavior</code>.</p>
+<p>The mod implements the "pomdrafts:draft" behavior, which adds a way to describe a draft.</p>
+<pre><code class="language-json">
+{
+	"code": "...",
+	"behaviors": [
+		{
+			"name": "pomdrafts:draft",
+			"properties": {
+				"shape": [ "..." ],
+				"cells": {
+					"...": {
+						"outputs": {
+							"up": "CONNECTION_TYPE",
+							"left": "CONNECTION_TYPE",
+							"right": "CONNECTION_TYPE"
+							"down": "CONNECTION_TYPE"
+						},
+						"inputs": {
+							"up": "CONNECTION_TYPE"
+							"left": "CONNECTION_TYPE"
+							"right": "CONNECTION_TYPE"
+							"down": "CONNECTION_TYPE"
+						}
+					}
+				},
+				"texture": "...",
+				"color": "#RRGGBB",
+				"groups": [ "..." ]
+			}
+		}
+	],
+	...
+}
+</code></pre>
+<p>Properties:</p>
+<ul>
+	<li><code>shape</code> - describes the shape of a draft, where each line in a list is a row, and each letter is a cell. If the letter is not in the list of cells, then it is considered as an empty space.</li>
+	<li><code>cells</code> - a list of cell types, the key being the letter used in the shape. May have <code>inputs</code>/<code>outputs</code> parameters describing the type of port on each side.</li>
+	<li><code>texture</code> - path to the draft texture, the texture is stretched over the entire area of the shape.</li>
+	<li><code>color</code> - cells color, white by default.</li>
+	<li><code>groups</code> - used to group by sections in the drafting table.</li>
+</ul>

@@ -1,10 +1,8 @@
-html
-{
+html {
 	height: 100%;
 }
 
-body
-{
+body {
 	box-sizing: border-box;
 	height: 100%;
 	font-size: 18px;
@@ -13,7 +11,12 @@ body
 	font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: 400;
 	margin: 10px 0;
 }
@@ -21,24 +24,29 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 36px;
 }
+
 h2 {
 	font-size: 30px;
 }
+
 h3 {
 	font-size: 24px;
 }
+
 h4 {
 	font-size: 20px;
 }
+
 h5 {
 	font-size: 18px;
 }
+
 h6 {
 	font-size: 16px;
 }
 
-body .list .item, body .list .item-link
-{
+body .list .item,
+body .list .item-link {
 	display: inline-block;
 	box-sizing: border-box;
 	overflow: hidden;
@@ -49,8 +57,7 @@ body .list .item, body .list .item-link
 	vertical-align: middle;
 }
 
-body > .sidebar
-{
+body>.sidebar {
 	box-sizing: border-box;
 	position: absolute;
 	display: block;
@@ -61,13 +68,11 @@ body > .sidebar
 	background-color: #f0f0f0;
 }
 
-body > .sidebar > .item
-{
+body>.sidebar>.item {
 	width: 100%;
 }
 
-body > .sidebar > .item-link
-{
+body>.sidebar>.item-link {
 	width: 100%;
 	color: black;
 	cursor: pointer;
@@ -75,14 +80,12 @@ body > .sidebar > .item-link
 	text-decoration: none;
 }
 
-body > .sidebar > .item-link:hover
-{
+body>.sidebar>.item-link:hover {
 	color: white;
 	background: black;
 }
 
-body > .content
-{
+body>.content {
 	box-sizing: border-box;
 	overflow: auto;
 	display: block;
@@ -91,27 +94,28 @@ body > .content
 	padding: 43px 0 48px 250px;
 }
 
-body .text-content
-{
+body .text-content {
 	box-sizing: border-box;
 	overflow: auto;
 	padding: 0 10px;
 }
 
-body .text-content span.space
-{
+body .text-content span.space {
 	display: inline-block;
 	height: 1.5em;
 }
 
-pre code.hljs
-{
+img.page-limit {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+pre code.hljs {
 	padding: 3px 5px !important;
 	font-size: 14px;
 }
 
-code:not(.hljs)
-{
+code:not(.hljs) {
 	box-sizing: border-box;
 	font-size: 16px;
 	padding: 0 4px;

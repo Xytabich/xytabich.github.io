@@ -1,0 +1,46 @@
+---
+layout: pomdrafts
+title: Xytabich > Drafts > Recipes
+---
+<h3>Drafting table recipes</h3>
+<p>Recipes are a graph of connections between drafts, a list of input items and the result of crafting.</p>
+<p>Due to the fact that a recipe is a graph (i.e., an abstract list of connections without reference to a coordinate system), all recipes can be assembled in any orientation of the canvas and drafts.</p>
+<p>Also, all inputs/outputs of drafts are perceived as a single list, in which the same types of ports can be interchanged. For example, if a draft has 2 <code>fluid</code> outputs, either of those outputs can be used to connect to an adjacent draft on the canvas. Therefore, if you need to make a connection strictly to a specific port, you need to either make a specific type of connection, or split the draft into several parts (additional drafts).</p>
+
+<h3>Adding recipe</h3>
+<p>Recipes are added to the <code>assets/{modid}/recipes/pomdrafts/</code> directory.</p>
+<p>To simplify, you can create a recipe in the drafting table by clicking the "Make recipe json" button. A json containing the graph of the current canvas and the items placed in the ingredient slots will be copied to the clipboard, all that remains is to configure the output item. You may need to tweak the ingredient items a bit, as the conversion to json is fuzzy.</p>
+<p>Json structure:</p>
+<pre><code class="language-json">
+{
+	"code": "RECIPECODE",
+	"pattern": {
+		"PART_KEY": {
+			"code": "DRAFT_CODE",
+			"outputs": [
+				{
+					"type": "CONNECTION_TYPE",
+					"target": "PART_KEY"
+				}
+			]
+		}
+	},
+	"ingredients": [
+		{
+			"type": "ITEMTYPE",
+			"code": "ITEMCODE",
+			"quantity": ?,
+			"litres": ?,
+			"isTool": ?,
+			"toolDurabilityCost": ?
+		}
+	],
+	"output": {
+		"type": "ITEMTYPE",
+		"code": "ITEMCODE",
+		"quantity": ...
+	}
+}
+</code></pre>
+<p>The <code>pattern</code> is a list of key-draft pairs. The key is an arbitrary string designating a draft in the graph. The draft consists of the draft code, and a list of outputs connected to other drafts. The output has a <a href="connections.html">connection type</a> that matches the type defined in the <a href="drafts.html">draft structure</a>.</p>
+<p>Ingredients can be items, tools (<code>isTool = true</code>), or liquids (<code>litres > 0</code>).</p>

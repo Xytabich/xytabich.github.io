@@ -1,0 +1,22 @@
+---
+layout: pomdrafts
+title: Xytabich > Drafts > Connections
+---
+<h3>Connections of drafts</h3>
+<p>Drafts have "ports" to connect to each other on the canvas. A port can be either an input or an output. Ports have different types, and only ports of the same type can connect to each other.</p>
+<p>The type of ports is also called the connection type, and the list of such types is determined through the config file.</p>
+<p>Connections are added via the <code>assets/{modid}/config/pomdrafts/connections.json</code> file.</p>
+<pre><code class="language-json">
+[
+	{
+		"code": "CONNECTION_TYPE",
+		"textures": {
+			"input": "...",
+			"output": "...",
+			"connected": "..."
+		}
+	}
+]
+</code></pre>
+<p>The connection has 3 state textures: <code>input</code>, <code>output</code> and <code>connected</code>. <code>input</code> and <code>output</code> are displayed when a draft is not connected to an adjacent one. <code>connected</code> is displayed when there are inputs and outputs directed at each other.</p>
+<p>The textures do not rotate depending on the direction of the port, take this into account when creating textures.</p>
