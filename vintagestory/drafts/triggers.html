@@ -5,9 +5,16 @@ title: Xytabich > Drafts > Triggers
 <h3>Triggers</h3>
 <p>A trigger is a mechanism for 'learning' a draft when a certain condition is met.</p>
 <p>The mod already has some built-in triggers, but if you want to add your own, you can use the extension method <code>DraftsModSystem.TryLearnDraft(IPlayer player, AssetLocation draftCode)</code>.</p>
+<ul>
+	<li><a href="#itm-trigger">Item triggers</a></li>
+	<li><a href="#blk-trigger">Block triggers</a></li>
+	<li><a href="#ent-trigger">Entity triggers</a></li>
+	<li><a href="#dlg-trigger">Dialogue trigger</a></li>
+</ul>
 
 <h3>List of built-in triggers</h3>
 <p>All built-in triggers are behaviors and are added via a list of behaviors in json.</p>
+<a id="itm-trigger"></a>
 <h4>Item triggers</h4>
 <p>Json structure:</p>
 <pre><code class="language-json">
@@ -66,6 +73,8 @@ title: Xytabich > Drafts > Triggers
 		</ul>
 	</li>
 </ul>
+
+<a id="blk-trigger"></a>
 <h4>Block triggers</h4>
 <p>Json structure:</p>
 <pre><code class="language-json">
@@ -107,6 +116,8 @@ title: Xytabich > Drafts > Triggers
 		</ul>
 	</li>
 </ul>
+
+<a id="ent-trigger"></a>
 <h4>Entity triggers</h4>
 <p>Json structure:</p>
 <pre><code class="language-json">
@@ -148,7 +159,9 @@ title: Xytabich > Drafts > Triggers
 	<li><code>pomdrafts:trigger-player-attack</code> - triggers when the entity attacks the player.</li>
 	<li><code>pomdrafts:trigger-dialogue</code> - adds the ability to use dialogue triggers for NPCs.</li>
 </ul>
-<ph4>Dialogue trigger</ph4>
+
+<a id="dlg-trigger"></a>
+<h4>Dialogue trigger</h4>
 <p>Learns the draft when executing a trigger placed in the dialogue.</p>
 <p>Json structure:</p>
 <pre><code class="language-json">
