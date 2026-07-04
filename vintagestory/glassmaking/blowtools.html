@@ -3,6 +3,7 @@ layout: glassmaking
 title: Xytabich > Glassmaking > Glassblower tools
 ---
 <h3>Glassblower tools</h3>
+<p><b>Note: </b> Glassmaking 2.0 introduces some changes in the json structure, update the tools if you're migrating from 1.0.</p>
 <p>Description of behaviors for actions and tools. Available actions are listed for behaviors, which can be used in the blowing recipe.</p>
 <p>If you want to add your own tool, you can use the described behaviors.</p>
 <ul>
@@ -32,16 +33,18 @@ title: Xytabich > Glassmaking > Glassblower tools
 	<li>The <code>minTier</code> parameter is the minimum tool level that can be used for this action (5 by default).</li>
 	<li>The <code>animation</code> parameter is the code for the character animation activated while using the tool.</li>
 </ul>
-<p>Attributes in the recipe:</p>
+<p>Recipe step properties:</p>
 <pre><code class="language-json">
 {
-	"time": ...,
-	"damage": ...
+	"toolDurabilityCost": ...,
+	"recipeAttributes": {
+		"time": ...
+	}
 }
 </code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-	<li>The <code>time</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
+	<li>The <code>toolDurabilityCost</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
 </ul>
 <span class="space"></span>
 
@@ -63,18 +66,20 @@ title: Xytabich > Glassmaking > Glassblower tools
 }
 </code></pre>
 <p>Parameters description same as <a href="#gbt-tooluse">ToolUse</a>.</p>
-<p>Attributes in the recipe:</p>
+<p>Recipe step properties:</p>
 <pre><code class="language-json">
 {
-	"time": ...,
-	"damage": ...,
-	"consume": ...
+	"toolDurabilityCost": ...,
+	"recipeAttributes": {
+		"time": ...,
+		"consume": ...
+	}
 }
 </code></pre>
 <ul>
 	<li>The <code>time</code> parameter determines how long (in seconds) the tool will be used.</li>
-	<li>The <code>damage</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
 	<li>The <code>consume</code> parameter determines how much humidity will be taken from the tool.</li>
+	<li>The <code>toolDurabilityCost</code> parameter determines how much durability will be taken away from the tool (1 by default).</li>
 </ul>
 <span class="space"></span>
 
@@ -92,10 +97,12 @@ title: Xytabich > Glassmaking > Glassblower tools
 	}
 }
 </code></pre>
-<p>Attributes in the recipe:</p>
+<p>Recipe step properties:</p>
 <pre><code class="language-json">
 {
-	"time": ...
+	"recipeAttributes": {
+		"time": ...
+	}
 }
 </code></pre>
 <ul>
@@ -117,7 +124,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 	}
 }
 </code></pre>
-<p>Attributes in the recipe:</p>
+<p>Recipe step properties:</p>
 <pre><code class="language-json">
 {
 	"code": "...",
@@ -125,7 +132,7 @@ title: Xytabich > Glassmaking > Glassblower tools
 }
 </code></pre>
 <ul>
-	<li>The <code>code</code> parameter defines the type of glass that is required (supports wildcards).</li>
+	<li>The <code>code</code> parameter defines the type of glass required (supports wildcards).</li>
 	<li>The <code>amount</code> parameter determines the amount of glass that needs to be collected.</li>
 </ul>
 <p>1000 units of glass are equivalent to one block by volume.</p>

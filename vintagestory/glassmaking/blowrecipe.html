@@ -7,6 +7,7 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 <h3>Adding blowing recipe</h3>
 <ul>
 	<li>Adding recipe</li>
+	<li><a href="#migration">Migrating recipes from 1.0 to 2.0</a></li>
 	<li><a href="#visualizer">Recipe shape visualizer</a></li>
 </ul>
 <p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/recipes/glassblowing/glassshape.json" target="_blank">Example on github.</a></p>
@@ -58,15 +59,14 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 				[7, 0]
 			]
 		},
-		"attributes": {
-			"code": "game:plain",
-			"amount": 128
-		}
+		"code": "game:plain",
+		"amount": 128,
+		"recipeAttributes": { ... }
 	}
 ]
 </code></pre>
 <p>The <code>tool</code> field contains the name of the tool or action.</p>
-<p>The <code>attributes</code> field contains additional data that the tool uses.</p>
+<p>The <code>recipeAttributes</code> field contains additional data that the tool uses.</p>
 <p>The optional <code>shape</code> field contains information about the shape of the workpiece that it will take as a result of this step:</p>
 <ul>
 	<li><code>segments</code> is the number of segments along the length of the mesh, the more the smoother the surface, but it does not affect the number of circle segments.</li>
@@ -99,18 +99,26 @@ title: Xytabich > Glassmaking > Adding blowing recipe
 			"name": "WILDCARD_NAME",
 			"tool": "...",
 			"shape": { ... },
-			"attributes": {
-				"allowedVariants": [ ... ],
-			}
+			"code": "abc-*-def",
+			"allowedVariants": [ ... ]
 		},
 	]
 }
 </code></pre>
 <ul>
-	<li>The <code>name</code> parameter defines the wildcard, which will be replaced in the output and in the recipe code.</li>
+	<li>The <code>attributes</code> parameter defines the wildcard, which will be replaced in the output and in the recipe code. The <code>*</code> symbol should be used to indicate the substitute in the <code>code</code> property.</li>
 	<li>The <code>allowedVariants</code> parameter limits the ingredients that can be used.</li>
 </ul>
 <span class="space"></span>
+
+<a id="migration"></a>
+<p>The Glassmaking 2.0 introduces some changes in the json structure.</p>
+<ul>
+	<li>The step <code>attributes</code> parameter is renamed to <code>recipeAttributes</code>.</li>
+	<li>Some tool properties are not longer specified in the step attributes, and moved to the step properties (see tools page for a new definition).</li>
+</ul>
+<span class="space"></span>
+
 <a id="visualizer"></a>
 <h3>Recipe shape visualizer</h3>
 <p>

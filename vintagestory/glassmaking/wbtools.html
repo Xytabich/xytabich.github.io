@@ -3,17 +3,20 @@ layout: glassmaking
 title: Xytabich > Glassmaking > Workbench tools
 ---
 <h3>Workbench tools</h3>
+<p><b>Note: </b> Glassmaking 2.0 introduces some changes in the json structure, update the tools if you're migrating from 1.0.</p>
 <p>The tools included in the mod are described below, but in addition to them it is also possible to create custom types of tools.</p>
 
 <h4>Lathe</h4>
 <p>Tool code: <code>lathe</code></p>
-<p>The workpiece can be clamped in the jaws and rotated.</p>
+<p>Used to hold the workpiece and turn it.</p>
 <pre><code class="language-json">
 {
 	"lathe": {
-		"rpm": ...,
-		"transform": { ... },
-		"size": ...
+		"recipeAttributes": {
+			"rpm": ...,
+			"transform": { ... },
+			"size": ...
+		}
 	}
 }
 </code></pre>
@@ -25,42 +28,46 @@ title: Xytabich > Glassmaking > Workbench tools
 
 <h4>Blowtorch</h4>
 <p>Tool code: <code>blowtorch</code></p>
-<p>It is used in all operations where it is necessary to heat certain parts of the glass.</p>
+<p>Used in operation where the glass or some parts should be heated.</p>
 <pre><code class="language-json">
 {
 	"blowtorch": {
-		"temperature": ...
+		"recipeAttributes": {
+			"temperature": ...
+		}
 	}
 }
 </code></pre>
 <ul>
-	<li>The <code>temperature</code> parameter is the minimum temperature that the blowtorch should give.</li>
+	<li>The <code>temperature</code> parameter specifies the minimum temperature should be provided by blowtorch.</li>
 </ul>
 
 <h4>Hand items</h4>
 <p>Tool code: <code>handItem</code> or <code>otherHandItem</code></p>
-<p>An item that must be held in hand during crafting. If it is necessary to hold an additional item in second hand, the <code>otherHandItem</code> can be used.</p>
+<p>An item that must be held in the hand during crafting. The <code>otherHandItem</code> tool can be used if there's need to hold an additional item in the second hand.</p>
 <pre><code class="language-json">
 {
 	"handItem": {
 		"type": ...,
 		"code": ...,
+		"isTool": ???,
 		...
 	}
 }
 </code></pre>
-<p>The parameter is "crafting ingredient", i.e. it is possible to specify the type, code, attributes and other parameters.
-If the item should be used as a tool, <code>isTool: true</code> can be specified.</p>
+<p>The item will be consumed at the end of the step. If the item should not be consumed, but used as a tool add <code>isTool: true</code> parameter.</p>
 
 <h4>Liquid</h4>
 <p>Tool code: <code>liquid</code></p>
-<p>It is necessary to have a liquid container in hand while crafting.</p>
+<p>Consumes the liquid from any container in the hand.</p>
 <pre><code class="language-json">
 {
 	"liquid": {
 		"type": ...,
 		"code": ...,
-		"requiresLitres": ...
+		"recipeAttributes": {
+			"requiresLitres": ...
+		}
 	}
 }
 </code></pre>

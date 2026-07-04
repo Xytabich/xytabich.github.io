@@ -3,6 +3,10 @@ layout: glassmaking
 title: Xytabich > Glassmaking > Adding workbench recipe
 ---
 <h3>Adding workbench recipe</h3>
+<ul>
+	<li>Adding recipe</li>
+	<li><a href="#migration">Migrating recipes from 1.0 to 2.0</a></li>
+</ul>
 <p><a href="https://github.com/Xytabich/Glassmaking/blob/master/example%20assets/recipes/glassworkbench/glassshape.json" target="_blank">Example on github.</a></p>
 <p>To add a new workbench recipe, you need to create a recipe json file in the <code>assets/MODID/recipes/glassworkbench/</code> folder and write there:</p>
 <pre><code class="language-json">
@@ -52,3 +56,7 @@ title: Xytabich > Glassmaking > Adding workbench recipe
 	<li>The <code>workpieceTransform</code> parameter is the shape transformation at this step. Optional parameter.</li>
 	<li>The <code>useTime</code> parameter is the number of seconds required to craft an item. If not specified, then the step is performed in one click.</li>
 </ul>
+<span class="space"></span>
+
+<a id="migration"></a>
+<p>The Glassmaking 2.0 introduces some changes in the json structure (see tools page for a new definition).</p>
