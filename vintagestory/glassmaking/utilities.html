@@ -1,0 +1,33 @@
+---
+layout: glassmaking
+title: Xytabich > Glassmaking > Utilities
+---
+<h3>Various utilities</h3>
+<h4>Shattering behavior</h4>
+<p>The item breaks into pieces when it cools too quickly.</p>
+<p>Can be added to the item or the block:</p>
+<pre><code class="language-json">
+{
+	"behaviors": [
+		{
+			"name": "glassmaking:shatterable",
+			"properties": {
+				"glass": {
+					"GLASS_CODE": GLASS_AMOUNT
+				},
+				"drops": [
+					{
+						"code": ...,
+						"type": ...,
+						"quantity": ...
+					}
+				]
+			}
+		}
+	],
+}
+</code></pre>
+<ul>
+	<li><code>glass</code> - a list of the glass mass contained in the item that will drop as shards.</li>
+	<li><code>drops</code> - a list of generic items that will drop in addition to glass shards. (Optional)</li>
+</ul>
